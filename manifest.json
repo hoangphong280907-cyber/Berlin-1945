@@ -1,0 +1,51 @@
+{
+  "id": "./index.html",
+  "name": "BERLIN 1945: FLAKTURM — 12.8 cm Flak 40",
+  "short_name": "FLAKTURM 1945",
+  "description": "Mô phỏng chiến thuật phòng không tháp pháo Berlin 1945 với pháo 12.8 cm Flak 40, súng phòng không và tên lửa Rheintochter R1.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "landscape",
+  "background_color": "#141216",
+  "theme_color": "#141216",
+  "lang": "vi",
+  "dir": "ltr",
+  "categories": [
+    "games"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./flak-splash.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "BERLIN 1945: FLAKTURM — Phòng không tháp pháo 12.8 cm Flak 40"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+:root {
+  --m-tab-bg: #ffffff;
+  --m-tab-surface: #f1f5f9;
+  --m-tab-text: #475569;
+  --m-tab-active: #1d4ed8;
+  --m-tab-active-bg: #eff6ff;
+  --m-tab-border: #e2e8f0;
+  --m-tab-height: 44px;
+  --m-tab-radius: 10px;
+  --m-tab-gap: 6px;
+}
+
+.m-tabs {
+  position: relative;
+  width: 100%;
+  background: var(--m-tab-bg);
+  border: 1px solid var(--m-tab-border);
+  border-radius: 14px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+/* Fade hint ở mép khi còn tab cuộn tiếp trên mobile */
+.m-tabs::before,
+.m-tabs::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  width: 24px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.m-tabs::before {
+  left: 6px;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+}
+
+.m-tabs::after {
+  right: 6px;
+  border-radius: 0 10px 10px 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+}
+
+.m-tabs.has-overflow-left::before,
+.m-tabs.has-overflow-right::after {
+  opacity: 1;
+}
+
+.m-tabs__list {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: var(--m-tab-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.m-tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Đường gạch chân trượt tự động theo tab active */
+.m-tabs__list::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: var(--tab-width, 0px);
+  height: 3px;
+  border-radius: 999px;
+  background: var(--m-tab-active);
+  transform: translateX(var(--tab-left, 0px));
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.m-tabs__tab {
+  flex: 0 0 auto;
+  min-height: var(--m-tab-height);
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--m-tab-radius);
+  background: transparent;
+  color: var(--m-tab-text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.m-tabs__tab:hover {
+  background: var(--m-tab-surface);
+  color: #0f172a;
+}
+
+.m-tabs__tab:focus-visible {
+  outline: 2px solid var(--m-tab-active);
+  outline-offset: 2px;
+}
+
+.m-tabs__tab[aria-selected="true"] {
+  color: var(--m-tab-active);
+  background: var(--m-tab-active-bg);
+}
+
+/* Chế độ tự căn chỉnh trên mobile */
+@media (max-width: 640px) {
+  /* 1. Scroll + auto-center */
+  .m-tabs[data-mobile-mode="scroll"] .m-tabs__tab {
+    padding: 0 14px;
+    font-size: 0.875rem;
+  }
+
+  /* 2. Grid tự căn đều hàng */
+  .m-tabs[data-mobile-mode="grid"]::before,
+  .m-tabs[data-mobile-mode="grid"]::after,
+  .m-tabs[data-mobile-mode="grid"] .m-tabs__list::after {
+    display: none;
+  }
+
+  .m-tabs[data-mobile-mode="grid"] .m-tabs__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    overflow-x: visible;
+    gap: 8px;
+  }
+
+  .m-tabs[data-mobile-mode="grid"] .m-tabs__tab {
+    flex: unset;
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding: 8px 10px;
+    min-height: 44px;
+  }
+
+  .m-tabs[data-mobile-mode="grid"] .m-tabs__tab[aria-selected="true"] {
+    box-shadow: inset 0 0 0 1.5px var(--m-tab-active);
+  }
+
+  /* 3. Bottom bar cố định dưới màn hình mobile */
+  .m-tabs[data-mobile-mode="bottom"] {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    border-radius: 16px 16px 0 0;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -6px 24px rgba(15, 23, 42, 0.12);
+  }
+
+  .m-tabs[data-mobile-mode="bottom"]::before,
+  .m-tabs[data-mobile-mode="bottom"]::after,
+  .m-tabs[data-mobile-mode="bottom"] .m-tabs__list::after {
+    display: none;
+  }
+
+  .m-tabs[data-mobile-mode="bottom"] .m-tabs__list {
+    justify-content: flex-start;
+    gap: 4px;
+  }
+
+  .m-tabs[data-mobile-mode="bottom"] .m-tabs__tab {
+    min-width: 76px;
+    min-height: 48px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    border-radius: 12px;
+  }
+}

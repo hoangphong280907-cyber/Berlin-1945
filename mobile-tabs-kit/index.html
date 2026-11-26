@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mobile-Optimized Tabs & Auto-Align Kit</title>
+  <link rel="stylesheet" href="tabs.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f7fb;
+      color: #18202c;
+      line-height: 1.5;
+    }
+    .page-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+    }
+    .hero {
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+    }
+    .hero p {
+      margin: 0;
+      color: #526071;
+      font-size: 0.95rem;
+    }
+    .panel {
+      margin-top: 16px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+    .panel p {
+      margin: 0;
+      color: #334155;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #1d4ed8;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <h1>Adaptive Mobile Tabs Demo</h1>
+      <p>Tự động căn giữa tab đang chọn, hỗ trợ vuốt/cuộn ngang mượt mà và chuyển sang thanh điều hướng dưới khi màn hình nhỏ.</p>
+    </header>
+
+    <!--
+      data-mobile-mode options:
+      - "scroll" (default): cuộn ngang mượt + tự căn giữa tab active
+      - "grid": chia đều hoặc tự xếp lưới gọn trên mobile
+      - "bottom": tự chuyển thành bottom navigation bar trên mobile
+    -->
+    <div class="m-tabs" data-mobile-mode="scroll" data-breakpoint="640">
+      <div class="m-tabs__list" role="tablist" aria-label="Danh mục nội dung">
+        <button class="m-tabs__tab" role="tab" aria-selected="true" aria-controls="tp-1" id="tab-1">Tổng quan</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-2" id="tab-2">Hoạt động gần đây</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-3" id="tab-3">Báo cáo thống kê</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-4" id="tab-4">Tài liệu &amp; Tệp</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-5" id="tab-5">Thành viên nhóm</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-6" id="tab-6">Cài đặt hệ thống</button>
+        <button class="m-tabs__tab" role="tab" aria-selected="false" aria-controls="tp-7" id="tab-7">Nhật ký bảo mật</button>
+      </div>
+    </div>
+
+    <section class="m-tabs__panels">
+      <div class="panel" id="tp-1" role="tabpanel" aria-labelledby="tab-1">
+        <h2>1. Tổng quan</h2>
+        <p>Khi bấm hoặc chuyển sang bất kỳ tab nào trên màn hình hẹp, JS sẽ tính toán vị trí và tự động cuộn mượt để đưa tab active vào giữa khung nhìn.</p>
+        <span class="badge">Auto-center active</span>
+      </div>
+      <div class="panel" id="tp-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+        <h2>2. Hoạt động gần đây</h2>
+        <p>Các nút tab có chiều cao tối thiểu 44px giúp chạm ngón tay thoải mái, không bị dính hoặc lệch dòng chữ khó đọc.</p>
+        <span class="badge">Touch target ≥ 44px</span>
+      </div>
+      <div class="panel" id="tp-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+        <h2>3. Báo cáo thống kê</h2>
+        <p>Thanh indicator trượt theo tab đang chọn dựa trên biến CSS động --tab-left và --tab-width.</p>
+        <span class="badge">Smooth underline</span>
+      </div>
+      <div class="panel" id="tp-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+        <h2>4. Tài liệu &amp; Tệp</h2>
+        <p>Hỗ trợ phím mũi tên trái/phải, Home/End theo chuẩn WAI-ARIA tablist cho khả năng truy cập đầy đủ.</p>
+        <span class="badge">Keyboard &amp; ARIA ready</span>
+      </div>
+      <div class="panel" id="tp-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+        <h2>5. Thành viên nhóm</h2>
+        <p>Tự động cập nhật lại vị trí căn chỉnh khi xoay ngang màn hình hoặc thay đổi kích thước cửa sổ.</p>
+        <span class="badge">ResizeObserver synced</span>
+      </div>
+      <div class="panel" id="tp-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+        <h2>6. Cài đặt hệ thống</h2>
+        <p>Bạn có thể đổi thuộc tính data-mobile-mode thành "grid" hoặc "bottom" để thử các kiểu căn chỉnh trên mobile.</p>
+        <span class="badge">3 mobile modes</span>
+      </div>
+      <div class="panel" id="tp-7" role="tabpanel" aria-labelledby="tab-7" hidden>
+        <h2>7. Nhật ký bảo mật</h2>
+        <p>Đã tính toán vùng an toàn safe-area-inset-bottom khi bật chế độ thanh điều hướng dưới trên điện thoại có tai thỏ/notch.</p>
+        <span class="badge">Safe-area supported</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="tabs.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /* BERLIN 1945: FLAKTURM — Service Worker (Offline & Audio Range Cache) */
-const CORE_CACHE = 'flakturm-core-v2';
+const CORE_CACHE = 'flakturm-v3-economy';
 const CDN_CACHE = 'flakturm-cdn-v1';
 
 const CORE_ASSETS = [

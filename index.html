@@ -526,6 +526,10 @@
       white-space: nowrap;
       touch-action: manipulation;
     }
+    .touch-tac-btn.zeitzunder-btn {
+      border-color: #f59e0b;
+      color: #fde68a;
+    }
 
     /* Cụm nút bắn cảm ứng tay phải tối ưu vị trí ngón cái */
     .touch-btn {
@@ -665,6 +669,151 @@
     .mobile-rotate-tip.dismissed {
       display: none !important;
     }
+  }
+
+  .zeitzunder-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+    justify-content: center;
+  }
+  .zeitzunder-pill {
+    background: rgba(24, 22, 20, 0.85);
+    border: 1px solid rgba(212, 180, 124, 0.35);
+    color: #cbd5e1;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .zeitzunder-pill:hover {
+    border-color: #fbbf24;
+    color: #fef3c7;
+  }
+  .zeitzunder-pill.active {
+    background: rgba(217, 119, 6, 0.35);
+    border-color: #fbbf24;
+    color: #fde68a;
+    font-weight: 700;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.35);
+  }
+  .zeitzunder-pill.sync-pill {
+    border-color: rgba(56, 189, 248, 0.55);
+    color: #7dd3fc;
+  }
+  .zeitzunder-pill.sync-pill:hover {
+    background: rgba(14, 116, 144, 0.35);
+    border-color: #38bdf8;
+    color: #e0f2fe;
+  }
+  .touch-tac-btn.mode-shrap {
+    border-color: #c084fc;
+    color: #e9d5ff;
+    background: rgba(88, 28, 135, 0.42);
+  }
+  .mode-selector-wrap {
+    width: min(500px, 90vw);
+    margin: 0 auto 10px;
+    background: rgba(13, 17, 23, 0.84);
+    border: 1px solid rgba(217, 119, 6, 0.42);
+    border-radius: 6px;
+    padding: 7px 10px;
+    backdrop-filter: blur(5px);
+  }
+  .mode-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #d6c8a6;
+    margin-bottom: 5px;
+    letter-spacing: 0.8px;
+  }
+  .mode-rank-pill {
+    background: rgba(217, 119, 6, 0.22);
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    color: #fde68a;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 9.5px;
+  }
+  .mode-btn-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .mode-choice-btn {
+    background: rgba(24, 28, 36, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    color: #cbd5e1;
+    font-family: 'Oswald', 'Share Tech Mono', sans-serif;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+  }
+  .mode-choice-btn .m-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+  }
+  .mode-choice-btn .m-sub {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+  .mode-choice-btn.active {
+    background: linear-gradient(135deg, rgba(180, 83, 9, 0.38), rgba(30, 41, 59, 0.92));
+    border-color: #f59e0b;
+    color: #fef3c7;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.28);
+  }
+  .mode-choice-btn.active .m-sub {
+    color: #fde68a;
+  }
+  .mode-briefing-line {
+    margin-top: 5px;
+    font-size: 9.5px;
+    color: #93c5fd;
+    text-align: center;
+    line-height: 1.3;
+  }
+  @media (max-height: 460px) {
+    .mode-selector-wrap {
+      padding: 5px 8px;
+      margin-bottom: 6px;
+    }
+    .mode-choice-btn {
+      padding: 4px 6px;
+    }
+    .mode-choice-btn .m-title {
+      font-size: 11px;
+    }
+    .mode-briefing-line {
+      display: none;
+    }
+  }
+  .lb-mode-badge {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    background: rgba(217, 119, 6, 0.24);
+    border: 1px solid rgba(251, 191, 36, 0.45);
+    color: #fde68a;
+  }
+  .lb-mode-badge.campaign {
+    background: rgba(22, 163, 74, 0.25);
+    border-color: rgba(74, 222, 128, 0.5);
+    color: #bbf7d0;
   }
 
 /* === FAVICON & SPLASH SCREEN === */
@@ -1076,12 +1225,13 @@
   </div>
 
   <div class="panel wave-box">
-    <div class="wave-num" id="wave-label">ĐỢT 1 • VÔ TẬN</div>
+    <div class="wave-num" id="wave-label">ĐỢT 1/10 • CHIẾN DỊCH</div>
     <div class="wave-sub" id="enemy-count-label">MỤC TIÊU: 0</div>
     <div class="wave-sub" id="daybreak-label" style="color:#94a3b8; margin-top:2px;">ĐÊM BERLIN • 0%</div>
-    <div class="wave-sub" style="color:#84cc16; margin-top:2px;">FLAK AI: 3 | ME-262: <span id="me262-count">2</span></div>
+    <div class="wave-sub" style="color:#84cc16; margin-top:2px;">FLAK AI: 3 | ME-262: <span id="me262-count">2</span> | KC: <span id="balloon-count">4</span></div>
     <div class="wave-sub" style="color:#fbbf24; margin-top:2px;">QUÂN CÔNG: <span id="scrap-label">0</span></div>
-    <div class="wave-sub" style="color:#93c5fd; margin-top:2px; font-size:10px;">KỶ LỤC: <span id="best-wave-hud">ĐỢT 1</span></div>
+    <div class="wave-sub" style="color:#fde68a; margin-top:2px; font-size:10px;">QUÂN HÀM: <span id="hud-rank-label">Kanonier</span></div>
+    <div class="wave-sub" style="color:#93c5fd; margin-top:1px; font-size:9.5px;">KỶ LỤC: <span id="best-wave-hud">ĐỢT 1</span></div>
   </div>
 
   <div class="right-hud-col mobile-tabs-collapsed" id="right-hud-col">
@@ -1107,9 +1257,17 @@
     <div class="val" id="primary-ammo-val">ĐẠN CHÍNH: 2,400</div>
   </div>
   <div class="ammo-card">
-    <div class="key">[CHUỘT PHẢI / F] • [X: HE/AP] • [CON LĂN: NGÒI]</div>
+    <div class="key">[CHUỘT PHẢI / F] • [X: HE/AP/SHRAP] • [Z: NGÒI | V: ĐỒNG BỘ]</div>
     <div class="val" id="heavy-flak-val">128MM (45): SẴN SÀNG</div>
-    <div class="key" id="rangefinder-status">NGÒI ZÜNDER: 900 M</div>
+    <div class="key" id="rangefinder-status">NGÒI ZÜNDER: 950 M</div>
+    <div class="zeitzunder-bar" id="desktop-zeitzunder-bar">
+      <button type="button" class="zeitzunder-pill" id="btn-desktop-fuze-down" title="Giảm ngòi 50m [-]">−50</button>
+      <button type="button" class="zeitzunder-pill" data-zeitzunder="low">550M</button>
+      <button type="button" class="zeitzunder-pill active" data-zeitzunder="mid">950M</button>
+      <button type="button" class="zeitzunder-pill" data-zeitzunder="high">1450M</button>
+      <button type="button" class="zeitzunder-pill" id="btn-desktop-fuze-up" title="Tăng ngòi 50m [+]">+50</button>
+      <button type="button" class="zeitzunder-pill sync-pill" id="btn-desktop-fuze-sync" title="Đồng bộ cự ly mục tiêu K40 [V]">K40 [V]</button>
+    </div>
   </div>
   <div class="ammo-card">
     <div class="key">[PHÍM R]</div>
@@ -1134,9 +1292,10 @@
       <button type="button" class="touch-tac-btn mode-he" id="btn-touch-ammo-type">128: HE</button>
     </div>
     <div class="touch-pill-row">
+      <button type="button" class="touch-tac-btn zeitzunder-btn" id="btn-touch-zeitzunder">ZÜNDER: TRUNG</button>
       <div class="touch-fuze-group">
         <button type="button" class="touch-fuze-step" id="btn-touch-fuze-down" aria-label="Giảm cự ly ngòi">−</button>
-        <button type="button" class="touch-fuze-readout" id="btn-touch-fuze-auto" title="Chạm để đồng bộ cự ly mục tiêu">NGÒI 900M</button>
+        <button type="button" class="touch-fuze-readout" id="btn-touch-fuze-auto" title="Chạm để đồng bộ cự ly mục tiêu">NGÒI 950M</button>
         <button type="button" class="touch-fuze-step" id="btn-touch-fuze-up" aria-label="Tăng cự ly ngòi">+</button>
       </div>
     </div>
@@ -1202,6 +1361,24 @@
   <h1 class="game-logo-main">BERLIN 1945</h1>
   <div class="game-logo-sub">FLAKTURM</div>
 
+  <div class="mode-selector-wrap">
+    <div class="mode-selector-header">
+      <span>CHỌN CHẾ ĐỘ TÁC CHIẾN</span>
+      <span class="mode-rank-pill" id="menu-rank-badge">QUÂN HÀM: KANONIER</span>
+    </div>
+    <div class="mode-btn-group">
+      <button type="button" class="mode-choice-btn active" data-game-mode="campaign">
+        <span class="m-title">★ CHIẾN DỊCH LỊCH SỬ (10 ĐỢT)</span>
+        <span class="m-sub">29/04 → Bình minh 02/05/1945</span>
+      </button>
+      <button type="button" class="mode-choice-btn" data-game-mode="endless">
+        <span class="m-title">∞ TỬ THỦ VÔ TẬN (ENDLESS)</span>
+        <span class="m-sub">Không giới hạn đợt • Kỷ lục: <span id="start-best-record">Đợt 1</span></span>
+      </button>
+    </div>
+    <div class="mode-briefing-line" id="menu-mode-briefing">Trụ vững qua 10 đợt không kích & thiết giáp để mở màn Chiến Thắng Lịch Sử.</div>
+  </div>
+
   <div class="menu-actions">
     <button id="btn-deploy" class="tac-btn primary">XUẤT KÍCH</button>
     <button id="btn-open-guide" class="tac-btn">HƯỚNG DẪN</button>
@@ -1211,10 +1388,10 @@
   <div class="quality-menu-row">
     <label for="graphics-quality-select">CHẤT LƯỢNG ĐỒ HỌA</label>
     <select id="graphics-quality-select" aria-label="Chất lượng đồ họa">
-      <option value="low">LOW</option>
-      <option value="mid">MID</option>
-      <option value="high">HIGH</option>
-      <option value="ultra">ULTRA</option>
+      <option value="low">THẤP (25%)</option>
+      <option value="mid">TRUNG BÌNH (50%)</option>
+      <option value="high">CAO (75%)</option>
+      <option value="ultra">TỐI ĐA (100%)</option>
     </select>
     <small id="graphics-quality-description">Tự cân bằng độ nét và hiệu năng.</small>
   </div>
@@ -1249,16 +1426,20 @@
         <div class="key-row"><span>Đạn nổ định tầm 128mm</span><span class="key-cap">CHUỘT PHẢI / PHÍM F</span></div>
         <div class="key-row"><span>Tên lửa tầm nhiệt R1</span><span class="key-cap">PHÍM R / NÚT R1 SAM</span></div>
         <div class="key-row"><span>Ống ngắm quang học (2.8X)</span><span class="key-cap">PHÍM Q / SHIFT / ZOOM</span></div>
-        <div class="key-row"><span>Tiếp đạn khẩn cấp (60 QC)</span><span class="key-cap">PHÍM B / NÚT TIẾP ĐẠN</span></div>
+        <div class="key-row"><span>Ngòi nổ Zünder (3 mức / ±50m / Đồng bộ K40)</span><span class="key-cap">Z / [ ] / CON LĂN / V</span></div>
+        <div class="key-row"><span>Đổi 3 loại đạn 128mm (HE / AP / SHRAP)</span><span class="key-cap">PHÍM X</span></div>
+        <div class="key-row"><span>Tiếp đạn khẩn cấp (60 QC+)</span><span class="key-cap">PHÍM B / NÚT TIẾP ĐẠN</span></div>
+        <div class="key-row"><span>Mobile: Vừa giữ bắn vừa rê ngắm</span><span class="key-cap">VUỐT TRÊN NÚT BẮN</span></div>
       </div>
       <div id="tab-weapons" class="guide-pane">
-        <p><strong>Đạn nổ định tầm (Flak 128mm):</strong> Phát nổ tạo vùng mảnh văng sát thương diện rộng khi tiếp cận độ cao máy bay địch.</p>
-        <p><strong>Quá nhiệt nòng pháo:</strong> Bắn liên tục làm nòng pháo chuyển sang vàng cam, cam đậm rồi đỏ rực và giảm tốc độ nhả đạn. Nhả cò trước khi thanh nhiệt chạm mức <strong>100%</strong> để tránh kẹt khóa nòng.</p>
-        <p><strong>Tên lửa Rheintochter R1:</strong> Đưa tâm ngắm vào máy bay địch để khóa mục tiêu, sau đó nhấn <strong>R</strong> để phóng tên lửa tự dẫn diệt oanh tạc cơ hạng nặng.</p>
+        <p><strong>3 Loại Đạn 12.8cm Flak 40 (Phím X):</strong> <strong>HE</strong> nổ mảnh diện rộng theo ngòi định thời trị đội hình bomber; <strong>AP</strong> xuyên giáp động năng 900m/s tiêu diệt & làm choáng xe tăng IS-2/T-34; <strong>SHRAP</strong> đạn chùm 14+ mảnh văng tungsten chống tiêm kích P-51/Pathfinder tầm gần-trung.</p>
+        <p><strong>Ngòi nổ Zeitzünder & Đồng bộ K40 (Z / V):</strong> Chỉnh nhanh 3 mức (550m/950m/1450m), tinh chỉnh từng nấc <strong>±50m</strong> bằng phím <strong>[ / ]</strong> hoặc con lăn chuột, và nhấn <strong>[V]</strong> để tự động khóa đúng cự ly mục tiêu của máy đo xa K40.</p>
+        <p><strong>Quá nhiệt & Sóng xung kích:</strong> Bắn liên tục làm nòng chuyển vàng cam → đỏ rực. Phát bắn 128mm tạo sóng xung kích đầu nòng và chớp cam rọi sáng kíp pháo thủ.</p>
       </div>
       <div id="tab-targets" class="guide-pane">
-        <p><strong>Oanh tạc cơ hạng nặng (B-17, Lancaster, Il-4):</strong> Bay theo đội hình, giáp dày, ưu tiên dùng đèn chiếu khóa mục tiêu, bắn đón đầu mũi máy bay hoặc dùng tên lửa R1.</p>
-        <p><strong>Tiêm kích hộ tống (P-51D Mustang):</strong> Tốc độ cao, cơ động nhanh ở tầm trung. Dùng pháo chính bắn đón đầu hoặc để biên đội phản lực <strong>Me-262</strong> hỗ trợ đánh chặn.</p>
+        <p><strong>Oanh tạc cơ & Pháo sáng treo dù:</strong> Bắn rụng quả pháo sáng treo dù của Pathfinder để triệt tiêu độ chính xác 2x của bom địch.</p>
+        <p><strong>Bắn hạ nòng đối đất -18° (Từ Đợt 4):</strong> Mở khóa góc hạ nòng âm xuống <strong>-18°</strong> để tiêu diệt đoàn xe tăng <strong>T-34/85, IS-2</strong> và pháo tự hành <strong>SU-152</strong> tiến công chân tháp.</p>
+        <p><strong>Khí cầu phòng không & Pháo nóc nhà:</strong> Cáp khí cầu cản đường bay địch, còn ụ pháo 20mm/37mm trên nóc nhà Berlin yểm trợ tầm thấp.</p>
       </div>
     </div>
   </div>
@@ -1281,10 +1462,10 @@
           <thead>
             <tr>
               <th>HẠNG</th>
-              <th>XẠ THỦ</th>
+              <th>XẠ THỦ & QUÂN HÀM</th>
               <th>ĐIỂM</th>
-              <th>HẠ MỤC TIÊU</th>
-              <th>ĐỢT</th>
+              <th>DIỆT ĐỊCH</th>
+              <th>CHIẾN TÍCH</th>
             </tr>
           </thead>
           <tbody id="lb-tbody"></tbody>
@@ -1302,12 +1483,12 @@
   <div class="armory-grid">
     <div class="upg-card" style="border-top:2px solid #84cc16;">
       <h4>TIẾP ĐẠN PHÁO CHÍNH (+1,200 VIÊN)</h4>
-      <p>Bổ sung 1,200 viên đạn phòng không từ kho hầm ngầm Zoo Tower.</p>
+      <p id="desc-ammo-main">Bổ sung 1,200 viên đạn thường (giá tăng sau mỗi lần mua).</p>
       <button class="upg-btn" id="buy-ammo-main">MUA ĐẠN (60)</button>
     </div>
     <div class="upg-card" style="border-top:2px solid #fb923c;">
       <h4>ĐẠN NẶNG (+15 FLAK 128MM & +4 R1)</h4>
-      <p>Bổ sung 15 đầu đạn nổ mảnh 128mm và 4 tên lửa tầm nhiệt Rheintochter.</p>
+      <p id="desc-ammo-heavy">Bổ sung 15 đạn nổ 128mm & 4 tên lửa R1 (giá tăng sau mỗi lần mua).</p>
       <button class="upg-btn" id="buy-ammo-heavy">MUA ĐẠN NẶNG (75)</button>
     </div>
     <div class="upg-card">
@@ -1317,7 +1498,7 @@
     </div>
     <div class="upg-card">
       <h4>BIÊN ĐỘI ME-262 (Cấp <span id="lvl-jet">1</span>)</h4>
-      <p>Tăng số lượng và hỏa lực pháo 30mm cho tiêm kích phản lực Me-262.</p>
+      <p id="desc-jet">Triệu hồi +1 tiêm kích Me-262 mỗi lần nâng cấp (tối đa 4) & tăng hỏa lực 30mm.</p>
       <button class="upg-btn" id="upg-jet">NÂNG CẤP (130)</button>
     </div>
     <div class="upg-card">
@@ -1340,14 +1521,47 @@
       <p>Giảm thời gian nạp tên lửa R1 tầm nhiệt diệt oanh tạc cơ hạng nặng.</p>
       <button class="upg-btn" id="upg-sam">NÂNG CẤP (130)</button>
     </div>
+    <div class="upg-card" style="border-top:2px solid #38bdf8;">
+      <h4>MÁY ĐO XA K40 & RADAR (Cấp <span id="lvl-radar">1</span>)</h4>
+      <p>Tăng +25% tốc độ khóa mục tiêu K40, giảm thời gian nhiễu radar & hiện vector dẫn đường.</p>
+      <button class="upg-btn" id="upg-radar">NÂNG CẤP (125)</button>
+    </div>
+    <div class="upg-card" style="border-top:2px solid #a8a29e;">
+      <h4>GIÁP BÊ TÔNG & CỨU HỎA (Cấp <span id="lvl-armor">1</span>)</h4>
+      <p>Giảm -12% sát thương tháp pháo nhận vào/cấp & tự dập lửa hồi +4% HP sau mỗi đợt.</p>
+      <button class="upg-btn" id="upg-armor">NÂNG CẤP (115)</button>
+    </div>
+    <div class="upg-card" style="border-top:2px solid #c084fc;">
+      <h4>ĐẠN CHÙM & TÊN LỬA R1 (Cấp <span id="lvl-warhead">1</span>)</h4>
+      <p>Tăng +3 mảnh văng đạn SHRAP & thêm đầu nổ lan 36m cho tên lửa tầm nhiệt R1.</p>
+      <button class="upg-btn" id="upg-warhead">NÂNG CẤP (140)</button>
+    </div>
     <div class="upg-card">
       <h4>GIA CỐ THÁP & BERLIN</h4>
-      <p>Sửa chữa 35% độ bền tháp pháo và công trình Berlin.</p>
-      <button class="upg-btn" id="upg-repair">SỬA CHỮA (80)</button>
+      <p id="desc-repair">Tính Quân Công theo mức độ hư hại thực tế để phục hồi 100% độ bền.</p>
+      <button class="upg-btn" id="upg-repair">SỬA CHỮA (0)</button>
     </div>
   </div>
   <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; width:min(680px,100%);">
     <button class="btn" id="btn-next-wave">TIẾP TỤC TỬ THỦ ĐỢT 2</button>
+  </div>
+</div>
+
+<!-- Campaign Victory Screen -->
+<div class="overlay hidden" id="victory-screen">
+  <div class="main-title" style="color:#fbbf24;">CHIẾN THẮNG LỊCH SỬ — BERLIN ĐÓN BÌNH MINH</div>
+  <div class="sub-title" style="color:#86efac;">HOÀN THÀNH CHIẾN DỊCH TỬ THỦ FLAKTURM ZOO (10/10 ĐỢT)</div>
+  <div class="briefing" style="text-align:center;">
+    Quân hàm đạt được: <b id="victory-rank" style="color:#fde68a;">Oberst der Flak</b><br>
+    Máy bay địch bắn hạ: <b id="victory-kills" style="color:#84cc16;">0</b> • Thiết giáp tiêu diệt: <b id="victory-tanks" style="color:#fb923c;">0</b><br>
+    Độ chính xác hỏa lực: <b id="victory-accuracy">0%</b><br>
+    Độ bền Berlin còn lại: <b id="victory-berlin-hp" style="color:#38bdf8;">100%</b> • Pháo đài: <b id="victory-turret-hp" style="color:#38bdf8;">100%</b><br>
+    Tổng quân công chiến dịch: <b id="victory-score" style="color:#fbbf24;">0</b>
+  </div>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <button class="btn" id="btn-continue-endless" style="border-color:#84cc16;">TIẾP TỤC SANG VÔ TẬN (ĐỢT 11+)</button>
+    <button class="btn" data-return-main-menu style="background:#1f2937; border-color:#d4b47c; box-shadow:none;">VỀ MENU CHÍNH</button>
+    <button class="btn" id="btn-victory-lb" style="background:#1f2937; border-color:#f59e0b; box-shadow:none;">BẢNG XẾP HẠNG</button>
   </div>
 </div>
 
@@ -1395,6 +1609,7 @@ class WarAudio {
 
     // 1 Single Background Battle Music Track
     this.bgmPath = './audio/bgm.mp3';
+    this.menuBgmPath = './audio/menu_bgm.mp3';
 
     // Single One-Shot Weapon / Aircraft SFX
     this.singlePaths = {
@@ -1448,6 +1663,10 @@ class WarAudio {
     };
 
     this.bgmAudio = null;
+    this.menuBgmAudio = null;
+    this.menuBgmActive = false;
+    this.menuBgmTimer = null;
+    this.menuBgmStep = 0;
     this.flyoverTracks = [];
     this.activeFlyoverAudio = null;
     this.lastFlyoverIndex = -1;
@@ -1467,6 +1686,133 @@ class WarAudio {
     this.bgmVolume = Math.max(0, Math.min(1, Number(value)));
     localStorage.setItem('berlin1945_bgm_volume', String(this.bgmVolume));
     if (this.bgmAudio) this.bgmAudio.volume = this.bgmVolume;
+    if (this.menuBgmAudio) this.menuBgmAudio.volume = this.bgmVolume;
+  }
+
+  _ensureMenuBgmAudio() {
+    if (!this.menuBgmAudio) {
+      const el = new Audio(this.menuBgmPath);
+      el.loop = true;
+      el.preload = 'auto';
+      el.volume = this.bgmVolume;
+      el.dataset.failed = 'no';
+      el.addEventListener('error', () => {
+        el.dataset.failed = 'yes';
+      });
+      this.menuBgmAudio = el;
+    } else {
+      this.menuBgmAudio.volume = this.bgmVolume;
+    }
+    return this.menuBgmAudio;
+  }
+
+  _ensureAudioContext() {
+    if (!this.ctx) {
+      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume().catch(() => {});
+    }
+    return this.ctx;
+  }
+
+  stopBattleBgm() {
+    if (this.bgmAudio) {
+      try { this.bgmAudio.pause(); } catch (_) {}
+    }
+  }
+
+  startBattleBgm() {
+    this.stopMenuBgm();
+    if (this.muted) return;
+    if (this.bgmAudio && this.bgmAudio.dataset.failed !== 'yes') {
+      this.bgmAudio.volume = this.bgmVolume;
+      if (this.bgmAudio.paused) {
+        this.bgmAudio.play().catch(() => {});
+      }
+    }
+  }
+
+  startMenuBgm() {
+    this.stopBattleBgm();
+    if (this.muted || this.bgmVolume <= 0.001) return;
+
+    const menuEl = this._ensureMenuBgmAudio();
+    if (menuEl && menuEl.dataset.failed !== 'yes') {
+      menuEl.volume = this.bgmVolume;
+      if (menuEl.paused) {
+        menuEl.play().catch(() => {
+          // Nếu trình duyệt chặn hoặc file chưa có sẵn thì dự phòng nhạc tổng hợp nhẹ
+          this._startSynthMenuBgmFallback();
+        });
+      }
+      return;
+    }
+
+    this._startSynthMenuBgmFallback();
+  }
+
+  _startSynthMenuBgmFallback() {
+    const ctx = this._ensureAudioContext();
+    if (!ctx || this.menuBgmActive) return;
+    this.menuBgmActive = true;
+    this.menuBgmStep = 0;
+
+    const chordNotes = [
+      [73.42, 110.00, 146.83],
+      [58.27, 87.31, 130.81],
+      [65.41, 98.00, 146.83],
+      [55.00, 82.41, 110.00]
+    ];
+
+    const playTick = () => {
+      if (!this.menuBgmActive || this.muted || this.bgmVolume <= 0.001 || !this.ctx) return;
+      const now = this.ctx.currentTime;
+      const notes = chordNotes[this.menuBgmStep % chordNotes.length];
+      const masterGain = Math.min(0.18, this.bgmVolume * 0.22);
+
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const filter = this.ctx.createBiquadFilter();
+        const env = this.ctx.createGain();
+
+        osc.type = idx === 0 ? 'triangle' : 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(idx === 0 ? 240 : 520, now);
+
+        env.gain.setValueAtTime(0.0001, now);
+        env.gain.linearRampToValueAtTime(masterGain * (idx === 0 ? 0.55 : 0.35), now + 0.45);
+        env.gain.exponentialRampToValueAtTime(0.0001, now + 2.35);
+
+        osc.connect(filter);
+        filter.connect(env);
+        env.connect(this.ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 2.42);
+      });
+
+      this.menuBgmStep++;
+    };
+
+    playTick();
+    this.menuBgmTimer = window.setInterval(playTick, 2400);
+  }
+
+  stopMenuBgm() {
+    this.menuBgmActive = false;
+    if (this.menuBgmTimer !== null) {
+      clearInterval(this.menuBgmTimer);
+      this.menuBgmTimer = null;
+    }
+    if (this.menuBgmAudio) {
+      try {
+        this.menuBgmAudio.pause();
+        this.menuBgmAudio.currentTime = 0;
+      } catch (_) {}
+    }
   }
 
   setSfxVolume(value) {
@@ -1598,9 +1944,7 @@ class WarAudio {
 
   startLoops() {
     if (this.muted) return;
-    if (this.bgmAudio && this.bgmAudio.dataset.failed !== 'yes' && this.bgmAudio.paused) {
-      this.bgmAudio.play().catch(() => {});
-    }
+    this.startBattleBgm();
     if (this.activeFlyoverAudio && this.activeFlyoverAudio.dataset.available === 'yes') {
       if (this.activeFlyoverAudio.paused) {
         this.activeFlyoverAudio.play().catch(() => {});
@@ -1664,10 +2008,15 @@ class WarAudio {
     if (btn) btn.textContent = this.muted ? '[M] ÂM THANH: TẮT' : '[M] ÂM THANH: BẬT';
 
     if (this.muted) {
-      if (this.bgmAudio) this.bgmAudio.pause();
+      this.stopBattleBgm();
+      this.stopMenuBgm();
       this.flyoverTracks.forEach(track => { if (track) track.pause(); });
     } else {
-      this.init();
+      if (typeof state !== 'undefined' && state && state.running) {
+        this.init();
+      } else {
+        this.startMenuBgm();
+      }
     }
   }
 
@@ -2115,10 +2464,10 @@ const camera = new THREE.PerspectiveCamera(BASE_FOV, window.innerWidth / window.
 camera.rotation.order = 'YXZ';
 
 const GRAPHICS_PRESETS = {
-  low:   { label: 'LOW',   description: '25% • giảm mạnh độ phân giải, máy bay và hiệu ứng.', pixelRatio: 0.50, minPixelRatio: 0.38, maxEnemies: 6, cityBatteries: 2, searchlights: 1, particles: 60, clouds: 55, hudFps: 15, labelMs: 240, crashSmoke: 0.9, largeDebrisSmoke: 0.95, smallDebrisSmoke: 1.1, engineSmokeInterval: 2.2, barrelSmokeInterval: 2.0, samSmoke: 0.9, cityBlastMin: 5.0, cityBlastRange: 2.0, cloudLayers: 1, hitSparks: 1, fpsDown: 30, fpsUp: 40, pixelDown: 0.12, pixelUp: 0.01 },
-  mid:   { label: 'MID',   description: '50% • cân bằng độ nét, mật độ mục tiêu và hiệu ứng.', pixelRatio: 0.71, minPixelRatio: 0.50, maxEnemies: 12, cityBatteries: 4, searchlights: 2, particles: 120, clouds: 110, hudFps: 30, labelMs: 150, crashSmoke: 0.58, largeDebrisSmoke: 0.65, smallDebrisSmoke: 0.78, engineSmokeInterval: 1.2, barrelSmokeInterval: 1.0, samSmoke: 0.55, cityBlastMin: 3.0, cityBlastRange: 1.3, cloudLayers: 1, hitSparks: 2, fpsDown: 36, fpsUp: 48, pixelDown: 0.10, pixelUp: 0.015 },
-  high:  { label: 'HIGH',  description: '75% • tăng độ nét, số mục tiêu và hiệu ứng.', pixelRatio: 0.87, minPixelRatio: 0.64, maxEnemies: 18, cityBatteries: 6, searchlights: 3, particles: 180, clouds: 200, hudFps: 45, labelMs: 90, crashSmoke: 0.34, largeDebrisSmoke: 0.4, smallDebrisSmoke: 0.5, engineSmokeInterval: 0.65, barrelSmokeInterval: 0.55, samSmoke: 0.32, cityBlastMin: 1.5, cityBlastRange: 0.8, cloudLayers: 2, hitSparks: 5, fpsDown: 42, fpsUp: 54, pixelDown: 0.08, pixelUp: 0.02 },
-  ultra: { label: 'ULTRA', description: '100% • độ nét và mật độ hiệu ứng tối đa.', pixelRatio: 1.0, minPixelRatio: 0.78, maxEnemies: 24, cityBatteries: 8, searchlights: 4, particles: 240, clouds: 300, hudFps: 60, labelMs: 50, crashSmoke: 0.2, largeDebrisSmoke: 0.24, smallDebrisSmoke: 0.3, engineSmokeInterval: 0.35, barrelSmokeInterval: 0.28, samSmoke: 0.2, cityBlastMin: 0.65, cityBlastRange: 0.55, cloudLayers: 2, hitSparks: 7, fpsDown: 48, fpsUp: 58, pixelDown: 0.06, pixelUp: 0.025 }
+  low:   { label: 'THẤP',       description: '25% • giảm mạnh độ phân giải, tắt bóng đổ động để giữ FPS cao.', pixelRatio: 0.55, minPixelRatio: 0.42, maxEnemies: 6, cityBatteries: 2, searchlights: 1, particles: 60, clouds: 55, hudFps: 15, labelMs: 240, crashSmoke: 0.9, largeDebrisSmoke: 0.95, smallDebrisSmoke: 1.1, engineSmokeInterval: 2.2, barrelSmokeInterval: 2.0, samSmoke: 0.9, cityBlastMin: 5.0, cityBlastRange: 2.0, cloudLayers: 1, hitSparks: 1, fpsDown: 30, fpsUp: 40, pixelDown: 0.12, pixelUp: 0.01 },
+  mid:   { label: 'TRUNG BÌNH', description: '50% • cân bằng độ nét (DPR ≤ 1.25), mật độ mục tiêu và hiệu ứng.', pixelRatio: 0.78, minPixelRatio: 0.55, maxEnemies: 12, cityBatteries: 4, searchlights: 2, particles: 120, clouds: 110, hudFps: 30, labelMs: 150, crashSmoke: 0.58, largeDebrisSmoke: 0.65, smallDebrisSmoke: 0.78, engineSmokeInterval: 1.2, barrelSmokeInterval: 1.0, samSmoke: 0.55, cityBlastMin: 3.0, cityBlastRange: 1.3, cloudLayers: 1, hitSparks: 2, fpsDown: 36, fpsUp: 48, pixelDown: 0.10, pixelUp: 0.015 },
+  high:  { label: 'CAO',        description: '75% • tăng độ nét, số mục tiêu và hiệu ứng khói lửa.', pixelRatio: 1.15, minPixelRatio: 0.75, maxEnemies: 18, cityBatteries: 6, searchlights: 3, particles: 180, clouds: 200, hudFps: 45, labelMs: 90, crashSmoke: 0.34, largeDebrisSmoke: 0.4, smallDebrisSmoke: 0.5, engineSmokeInterval: 0.65, barrelSmokeInterval: 0.55, samSmoke: 0.32, cityBlastMin: 1.5, cityBlastRange: 0.8, cloudLayers: 2, hitSparks: 5, fpsDown: 42, fpsUp: 54, pixelDown: 0.08, pixelUp: 0.02 },
+  ultra: { label: 'TỐI ĐA',     description: '100% • độ nét và mật độ hiệu ứng tối đa.', pixelRatio: 1.5, minPixelRatio: 0.95, maxEnemies: 24, cityBatteries: 8, searchlights: 4, particles: 240, clouds: 300, hudFps: 60, labelMs: 50, crashSmoke: 0.2, largeDebrisSmoke: 0.24, smallDebrisSmoke: 0.3, engineSmokeInterval: 0.35, barrelSmokeInterval: 0.28, samSmoke: 0.2, cityBlastMin: 0.65, cityBlastRange: 0.55, cloudLayers: 2, hitSparks: 7, fpsDown: 48, fpsUp: 58, pixelDown: 0.06, pixelUp: 0.025 }
 };
 let graphicsQuality = (() => {
   try {
@@ -2128,9 +2477,11 @@ let graphicsQuality = (() => {
 })();
 let graphicsProfile = GRAPHICS_PRESETS[graphicsQuality];
 const isMobileTouchDevice = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0)) && Math.min(window.innerWidth, window.innerHeight) <= 960;
-let maxRenderPixelRatio = Math.min(isMobileTouchDevice ? 1.35 : 2, graphicsProfile.pixelRatio);
+const MOBILE_MAX_DPR = 1.25;
+let maxRenderPixelRatio = Math.min(isMobileTouchDevice ? MOBILE_MAX_DPR : 2, graphicsProfile.pixelRatio);
 
 const renderer = new THREE.WebGLRenderer({ antialias: !isMobileTouchDevice, powerPreference: 'high-performance' });
+renderer.shadowMap.enabled = false;
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(maxRenderPixelRatio);
 let adaptiveRenderPixelRatio = maxRenderPixelRatio;
@@ -2153,7 +2504,7 @@ function setGraphicsQuality(level) {
   if (!Object.hasOwn(GRAPHICS_PRESETS, level)) return;
   graphicsQuality = level;
   graphicsProfile = GRAPHICS_PRESETS[level];
-  maxRenderPixelRatio = Math.min(isMobileTouchDevice ? 1.35 : 2, graphicsProfile.pixelRatio);
+  maxRenderPixelRatio = Math.min(isMobileTouchDevice ? MOBILE_MAX_DPR : 2, graphicsProfile.pixelRatio);
   adaptiveRenderPixelRatio = maxRenderPixelRatio;
   renderer.setPixelRatio(adaptiveRenderPixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight, false);
@@ -2386,6 +2737,8 @@ function disposeAircraftResources(root) {
 // ==================== BUILD AUTHENTIC FLAKTURM FORTRESS & BERLIN ENVIRONMENT ====================
 const searchlights = [];
 const cityFlakBatteries = [];
+const barrageBalloons = [];
+const rooftopFlakBatteries = [];
 
 const BASTION_COORDS = [
   [ 26, 46.5,  26], // Player SE Bastion (12.8 cm Flak 40)
@@ -2904,6 +3257,86 @@ function buildBerlinEnvironment() {
   cityFireInstances.instanceMatrix.needsUpdate = true;
   scene.add(cityBuildingInstances, cityFireInstances);
 
+  // Rooftop 20mm / 37mm Light Flak Emplacements on Berlin Buildings
+  const rooftopMountMat = new THREE.MeshStandardMaterial({ color: 0x3f3c36, metalness: 0.65, roughness: 0.42 });
+  for (let rIdx = 0; rIdx < 8; rIdx++) {
+    const ang = (rIdx / 8) * Math.PI * 2 + 0.35;
+    const dist = 165 + (rIdx % 3) * 85;
+    const rx = Math.cos(ang) * dist;
+    const rz = Math.sin(ang) * dist;
+    if (Math.abs(rz + 240) < 62) continue;
+    const roofH = 26 + (rIdx % 4) * 7;
+
+    const roofBldg = new THREE.Mesh(new THREE.BoxGeometry(24, roofH, 24), buildingMat);
+    roofBldg.position.set(rx, roofH / 2, rz);
+    scene.add(roofBldg);
+
+    const aaSandbag = new THREE.Mesh(new THREE.CylinderGeometry(4.2, 4.8, 1.5, 10, 1, true), stoneMat);
+    aaSandbag.position.set(rx, roofH + 0.75, rz);
+    scene.add(aaSandbag);
+
+    const aaGun = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.28, 3.2, 8), rooftopMountMat);
+    aaGun.position.set(rx, roofH + 1.8, rz);
+    aaGun.rotation.x = 0.75;
+    scene.add(aaGun);
+
+    rooftopFlakBatteries.push({
+      pos: new THREE.Vector3(rx, roofH + 2.2, rz),
+      gunMesh: aaGun,
+      caliber: rIdx % 2 === 0 ? '20mm' : '37mm',
+      cooldown: Math.random() * 1.2,
+      burstRemaining: 0,
+      targetAim: new THREE.Vector3(rx, 180, rz)
+    });
+  }
+
+  // Barrage Balloons (Khí cầu phòng không neo cáp thép bảo vệ không phận Berlin)
+  const balloonBodyMat = new THREE.MeshStandardMaterial({ color: 0x7a828c, metalness: 0.35, roughness: 0.58 });
+  const balloonFinMat = new THREE.MeshStandardMaterial({ color: 0x5c636b, roughness: 0.65 });
+  const tetherMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.42 });
+
+  for (let bIdx = 0; bIdx < 6; bIdx++) {
+    const ang = (bIdx / 6) * Math.PI * 2 + 0.22;
+    const radius = 295 + (bIdx % 2) * 145;
+    const anchorX = Math.cos(ang) * radius;
+    const anchorZ = Math.sin(ang) * radius;
+    if (Math.abs(anchorZ + 240) < 65) continue;
+    const baseAlt = 152 + (bIdx % 3) * 24;
+
+    const balloonGroup = new THREE.Group();
+    const hull = new THREE.Mesh(new THREE.SphereGeometry(9.5, 14, 10), balloonBodyMat);
+    hull.scale.set(1.0, 0.92, 2.35);
+    balloonGroup.add(hull);
+
+    for (let f = 0; f < 4; f++) {
+      const fin = new THREE.Mesh(new THREE.BoxGeometry(f < 2 ? 9.5 : 0.45, f < 2 ? 0.45 : 9.5, 5.5), balloonFinMat);
+      fin.position.set(0, 0, -15.5);
+      balloonGroup.add(fin);
+    }
+
+    balloonGroup.position.set(anchorX, baseAlt, anchorZ);
+    balloonGroup.rotation.y = ang + Math.PI * 0.5;
+    scene.add(balloonGroup);
+
+    const cableGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(anchorX, 2, anchorZ),
+      new THREE.Vector3(anchorX, baseAlt, anchorZ)
+    ]);
+    const cableLine = new THREE.Line(cableGeo, tetherMat);
+    scene.add(cableLine);
+
+    barrageBalloons.push({
+      mesh: balloonGroup,
+      cable: cableLine,
+      anchor: new THREE.Vector3(anchorX, 2, anchorZ),
+      baseAlt,
+      phase: bIdx * 1.37,
+      hp: 110,
+      intact: true,
+      respawnTimer: 0
+    });
+  }
+
   // Ground AA Flak Emplacements across Berlin districts firing tracers into the night sky
   for (let b = 0; b < 16; b++) {
     const ang = (b / 16) * Math.PI * 2 + (Math.random() - 0.5) * 0.2;
@@ -3163,6 +3596,25 @@ mainMuzzleLight.name = 'mainMuzzleLight';
 mainMuzzleLight.position.set(0, 0.15, -9.2);
 flak40RecoilGroup.add(mainMuzzleLight);
 
+// Sóng xung kích đầu nòng 12.8 cm & Ánh chớp cam hắt lên bệ bê tông + kíp pháo thủ 3D (0.1s)
+const muzzleShockwaveMat = new THREE.MeshBasicMaterial({
+  color: 0xffd28a,
+  transparent: true,
+  opacity: 0,
+  side: THREE.DoubleSide,
+  depthWrite: false
+});
+const muzzleShockwaveRing = new THREE.Mesh(new THREE.RingGeometry(0.32, 0.72, 24), muzzleShockwaveMat);
+muzzleShockwaveRing.name = 'flak40-muzzle-shockwave';
+muzzleShockwaveRing.position.set(0, 0.15, -8.85);
+muzzleShockwaveRing.visible = false;
+flak40RecoilGroup.add(muzzleShockwaveRing);
+
+const muzzleDeckFlashLight = new THREE.PointLight(0xff7a1a, 0, 18);
+muzzleDeckFlashLight.name = 'flak40-deck-flash';
+muzzleDeckFlashLight.position.set(0, 3.1, 0.65);
+turretBase.add(muzzleDeckFlashLight);
+
 const aux20Barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.09, 3.6, 8), auxBarrelMat);
 aux20Barrel.rotation.x = Math.PI / 2;
 aux20Barrel.position.set(-0.82, 0.35, -2.4);
@@ -3338,6 +3790,14 @@ class GermanFlakVoiceSystem {
       ],
       DEFEND_BERLIN: [
         "Berlin bis zum letzten Mann verteidigen!"
+      ],
+      RANGEFINDER_LOCK: [
+        "Kommandogerät Ziel erfasst! Vorhalt steht!",
+        "Entfernung gemessen! Feuerleitwerte bereit!"
+      ],
+      TANK_ALERT: [
+        "Feindliche Panzer im Tiergarten! Rohr tief richten — Panzergranate laden!",
+        "Achtung! Sowjetische Panzer im Anmarsch! Direktbeschuss!"
       ]
     };
 
@@ -4436,9 +4896,67 @@ function createAerialBombMesh() {
   return bGroup;
 }
 
+function buildSovietArmorMesh(armorType = 't34') {
+  const group = new THREE.Group();
+  const hullMat = new THREE.MeshStandardMaterial({
+    color: armorType === 'is2' ? 0x3b4832 : (armorType === 'su152' ? 0x454e38 : 0x425236),
+    roughness: 0.72,
+    metalness: 0.28
+  });
+  const trackMat = new THREE.MeshStandardMaterial({ color: 0x1c1b1a, roughness: 0.9 });
+  const gunMat = new THREE.MeshStandardMaterial({ color: 0x2d332a, metalness: 0.55, roughness: 0.4 });
+
+  const isHeavy = armorType === 'is2' || armorType === 'su152';
+  const w = isHeavy ? 6.4 : 5.6;
+  const l = isHeavy ? 11.8 : 10.2;
+
+  const hull = new THREE.Mesh(new THREE.BoxGeometry(w, 2.2, l), hullMat);
+  hull.position.y = 1.65;
+  group.add(hull);
+
+  [-w * 0.52, w * 0.52].forEach(tx => {
+    const track = new THREE.Mesh(new THREE.BoxGeometry(1.1, 1.55, l * 1.04), trackMat);
+    track.position.set(tx, 0.85, 0);
+    group.add(track);
+  });
+
+  const turretPivot = new THREE.Group();
+  turretPivot.position.set(0, 3.0, armorType === 'su152' ? 0.6 : -0.3);
+  group.add(turretPivot);
+
+  if (armorType === 'su152') {
+    const casemate = new THREE.Mesh(new THREE.BoxGeometry(w * 0.88, 2.1, l * 0.58), hullMat);
+    casemate.position.y = 0.75;
+    turretPivot.add(casemate);
+    const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.36, 7.2, 10), gunMat);
+    barrel.rotation.x = Math.PI / 2;
+    barrel.position.set(0, 0.95, 5.2);
+    turretPivot.add(barrel);
+  } else {
+    const turret = new THREE.Mesh(
+      new THREE.CylinderGeometry(isHeavy ? 2.1 : 1.75, isHeavy ? 2.55 : 2.15, 1.65, 10),
+      hullMat
+    );
+    turret.position.y = 0.65;
+    turretPivot.add(turret);
+
+    const barrelLen = isHeavy ? 8.4 : 7.0;
+    const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.25, barrelLen, 10), gunMat);
+    barrel.rotation.x = Math.PI / 2;
+    barrel.position.set(0, 0.72, barrelLen * 0.5 + 1.4);
+    turretPivot.add(barrel);
+  }
+
+  return { mesh: group, turretPivot };
+}
+
 // ==================== GAME STATE & ENTITIES ====================
-const MIN_PITCH = -0.052; // -3°
-const MAX_PITCH = 1.536;  // +88°
+const AIR_MIN_PITCH = -0.052;    // -3° (Đợt 1–3: phòng không thuần túy)
+const GROUND_MIN_PITCH = -0.314; // -18° (Từ Đợt 4: mở khóa hạ nòng bắn xe tăng đối đất)
+const MAX_PITCH = 1.536;         // +88°
+function getCurrentMinPitch() {
+  return state.wave >= 4 ? GROUND_MIN_PITCH : AIR_MIN_PITCH;
+}
 const AIRCRAFT_DIVE_FLOOR_Y = 125;
 
 const savedCamCfg = (() => {
@@ -4486,15 +5004,76 @@ function saveEndlessRecord() {
   } catch (_) {}
 }
 
+const CAMPAIGN_MAX_WAVES = 10;
+const CAREER_STORAGE_KEY = 'berlin1945_flakturm_career_v1';
+const WEHRMACHT_RANKS = [
+  { minPoints: 0,     title: 'Kanonier (Pháo thủ)' },
+  { minPoints: 1500,  title: 'Gefreiter (Binh nhất)' },
+  { minPoints: 4000,  title: 'Obergefreiter (Thượng sĩ binh)' },
+  { minPoints: 8500,  title: 'Unteroffizier (Hạ sĩ)' },
+  { minPoints: 15000, title: 'Feldwebel (Thượng sĩ)' },
+  { minPoints: 25000, title: 'Leutnant (Thiếu úy)' },
+  { minPoints: 40000, title: 'Hauptmann (Đại úy)' },
+  { minPoints: 65000, title: 'Oberst der Flak (Đại tá Phòng không)' }
+];
+
+function loadCareerStats() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CAREER_STORAGE_KEY) || '{}');
+    return {
+      meritPoints: Number(raw.meritPoints) || 0,
+      totalKills: Number(raw.totalKills) || 0,
+      totalTankKills: Number(raw.totalTankKills) || 0,
+      campaignsWon: Number(raw.campaignsWon) || 0
+    };
+  } catch (_) {
+    return { meritPoints: 0, totalKills: 0, totalTankKills: 0, campaignsWon: 0 };
+  }
+}
+
+const careerStats = loadCareerStats();
+function saveCareerStats() {
+  try { localStorage.setItem(CAREER_STORAGE_KEY, JSON.stringify(careerStats)); } catch (_) {}
+}
+
+function getCurrentRankInfo(extraMerit = 0) {
+  const pts = careerStats.meritPoints + extraMerit;
+  let rank = WEHRMACHT_RANKS[0];
+  for (const r of WEHRMACHT_RANKS) {
+    if (pts >= r.minPoints) rank = r;
+  }
+  return { title: rank.title, shortTitle: rank.title.split(' (')[0], points: pts };
+}
+
+function recordCareerProgress(scrapEarned, airKills, tankKills, campaignCompleted = false) {
+  const bonus = campaignCompleted ? 5000 : 0;
+  careerStats.meritPoints += Math.max(0, Math.floor(scrapEarned + airKills * 45 + tankKills * 90 + bonus));
+  careerStats.totalKills += Math.max(0, Math.floor(airKills));
+  careerStats.totalTankKills += Math.max(0, Math.floor(tankKills));
+  if (campaignCompleted) careerStats.campaignsWon++;
+  saveCareerStats();
+  syncRankDisplays();
+}
+
+function syncRankDisplays() {
+  const rank = getCurrentRankInfo();
+  const menuRankEl = document.getElementById('menu-rank-badge');
+  if (menuRankEl) menuRankEl.textContent = `QUÂN HÀM: ${rank.shortTitle.toUpperCase()}`;
+  const hudRankEl = document.getElementById('hud-rank-label');
+  if (hudRankEl) hudRankEl.textContent = rank.shortTitle;
+}
+
 const state = {
   running: false,
   cinematicActive: false,
+  gameMode: 'campaign',
   wave: 1,
   dawnProgress: 0,
   waveCleared: false,
   scrap: 0,
   totalScrapEarned: 0,
   kills: 0,
+  tankKills: 0,
   totalShotsFired: 0,
   primaryRoundsFired: 0,
   barrelWear: 0,
@@ -4502,6 +5081,9 @@ const state = {
   primaryAmmo: INITIAL_PRIMARY_AMMO,
   flakAmmo: INITIAL_FLAK_AMMO,
   samAmmo: INITIAL_SAM_AMMO,
+  ammoMainBought: 0,
+  ammoHeavyBought: 0,
+  emergencyResupplyCount: 0,
   resupplyCooldown: 0,
   emptyWarnTimer: 0,
   berlinHp: 100,
@@ -4515,15 +5097,19 @@ const state = {
   yawVelocity: 0,
   pitchVelocity: 0,
   zoomed: false,
-  flakFuseRange: 900,
+  flakFuseRange: 950,
+  zeitzunderTier: 'mid',
   windDirection: new THREE.Vector3(0.82, 0, -0.57).normalize(),
   rangefinderJamTimer: 0,
   fireControlTarget: null,
   fireControlTrackSeconds: 0,
   fireControlQuality: 0,
+  fireControlVoiceAnnounced: false,
   fireControlLastUpdate: 0,
   fireControlAimYaw: 0,
   fireControlAimPitch: 0,
+  muzzleShockwaveTimer: 0,
+  groundDepressionUnlocked: false,
   heavyAmmoType: 'HE',
   flashBlindTimer: 0,
   primaryRoundCounter: 0,
@@ -4555,7 +5141,10 @@ const state = {
     rof: 1,
     cool: 1,
     flak: 1,
-    sam: 1
+    sam: 1,
+    radar: 1,
+    armor: 1,
+    warhead: 1
   }
 };
 
@@ -4567,6 +5156,7 @@ const crashingAircraft = [];
 const debrisPieces = [];
 const friendlyJets = [];
 const MAX_FRIENDLY_JETS = 4;
+let nextFriendlyJetId = 1;
 const projectiles = [];
 const pistonExhaustGeometry = new THREE.SphereGeometry(0.42, 6, 5);
 const pistonExhaustBlueMaterial = new THREE.MeshBasicMaterial({ color: 0x39bdf8, transparent: true, opacity: 0.52, depthWrite: false });
@@ -4592,6 +5182,13 @@ const cityTracers = [];
 const samMissiles = [];
 const enemyBombs = [];
 const pathfinderFlares = [];
+const groundTargets = [];
+const groundShells = [];
+const ZEITZUNDER_TIERS = [
+  { id: 'low', label: 'THẤP', range: 550 },
+  { id: 'mid', label: 'TRUNG', range: 950 },
+  { id: 'high', label: 'CAO', range: 1450 }
+];
 const parachutes = [];
 const particles = [];
 const flakClouds = [];
@@ -4726,26 +5323,36 @@ function releaseGamePointerLock() {
 }
 
 // ==================== FRIENDLY ME-262 JET INTERCEPTOR SQUADRON ====================
-function syncFriendlySquadron() {
-  const desiredCount = Math.min(MAX_FRIENDLY_JETS, 1 + state.upgrades.jet);
-  while (friendlyJets.length < desiredCount) {
-    const idx = friendlyJets.length;
-    const { mesh } = createWW2Aircraft('me262');
-    const ang = (idx / desiredCount) * Math.PI * 2;
-    mesh.position.set(Math.cos(ang) * 240, 220 + idx * 25, Math.sin(ang) * 240);
-    scene.add(mesh);
-    friendlyJets.push({
-      id: idx + 1,
-      name: `ME-262 #${idx + 1}`,
-      mesh,
-      orbitAngle: ang,
-      fireCooldown: Math.random() * 0.5,
-      velocity: new THREE.Vector3(),
-      hp: 100,
-      target: null
-    });
+function spawnOneFriendlyJet() {
+  if (friendlyJets.length >= MAX_FRIENDLY_JETS) return false;
+  const jetId = nextFriendlyJetId++;
+  const slotIdx = friendlyJets.length;
+  const { mesh } = createWW2Aircraft('me262');
+  const ang = (slotIdx / MAX_FRIENDLY_JETS) * Math.PI * 2 + Math.random() * 0.35;
+  mesh.position.set(Math.cos(ang) * 240, 220 + slotIdx * 22, Math.sin(ang) * 240);
+  scene.add(mesh);
+  friendlyJets.push({
+    id: jetId,
+    name: `ME-262 #${jetId}`,
+    mesh,
+    orbitAngle: ang,
+    fireCooldown: Math.random() * 0.5,
+    velocity: new THREE.Vector3(),
+    hp: 100,
+    target: null
+  });
+  const countEl = document.getElementById('me262-count');
+  if (countEl) countEl.textContent = friendlyJets.length;
+  return true;
+}
+
+function initStartingFriendlySquadron() {
+  const initialCount = Math.min(MAX_FRIENDLY_JETS, 1 + state.upgrades.jet);
+  while (friendlyJets.length < initialCount) {
+    if (!spawnOneFriendlyJet()) break;
   }
-  document.getElementById('me262-count').textContent = friendlyJets.length;
+  const countEl = document.getElementById('me262-count');
+  if (countEl) countEl.textContent = friendlyJets.length;
 }
 
 // ==================== AIMING & CONTROLS (PC + MOBILE TOUCH) ====================
@@ -4852,8 +5459,10 @@ window.addEventListener('keydown', (e) => {
   }
   if (e.code === 'KeyF' && state.running && !camConfig.panelOpen) fireFlak128();
   if (e.code === 'KeyX' && !e.repeat && state.running && !camConfig.panelOpen) toggleHeavyAmmoType();
-  if ((e.code === 'BracketRight' || e.code === 'Equal') && state.running && !camConfig.panelOpen) adjustFlakFuseRange(100);
-  if ((e.code === 'BracketLeft' || e.code === 'Minus') && state.running && !camConfig.panelOpen) adjustFlakFuseRange(-100);
+  if (e.code === 'KeyZ' && !e.repeat && state.running && !camConfig.panelOpen) cycleZeitzunderTier();
+  if (e.code === 'KeyV' && !e.repeat && state.running && !camConfig.panelOpen) syncFlakFuseToTarget();
+  if ((e.code === 'BracketRight' || e.code === 'Equal') && state.running && !camConfig.panelOpen) adjustFlakFuseRange(50);
+  if ((e.code === 'BracketLeft' || e.code === 'Minus') && state.running && !camConfig.panelOpen) adjustFlakFuseRange(-50);
   if (e.code === 'KeyR' && state.running && !camConfig.panelOpen) fireRheintochterSAM();
   if ((e.code === 'KeyQ' || e.code === 'ShiftLeft' || e.code === 'ShiftRight') && state.running && !camConfig.panelOpen) {
     toggleZoom();
@@ -4881,7 +5490,7 @@ renderer.domElement.addEventListener('mousedown', (e) => {
 renderer.domElement.addEventListener('wheel', (e) => {
   if (!state.running || camConfig.panelOpen) return;
   e.preventDefault();
-  adjustFlakFuseRange(e.deltaY < 0 ? 100 : -100);
+  adjustFlakFuseRange(e.deltaY < 0 ? 50 : -50);
 }, { passive: false });
 
 window.addEventListener('mouseup', (e) => {
@@ -4903,7 +5512,7 @@ window.addEventListener('mousemove', (e) => {
 
   state.targetYaw -= mx * sens;
   state.targetPitch -= my * sens;
-  state.targetPitch = Math.max(MIN_PITCH, Math.min(MAX_PITCH, state.targetPitch));
+  state.targetPitch = Math.max(getCurrentMinPitch(), Math.min(MAX_PITCH, state.targetPitch));
 });
 
 let touchLookId = null;
@@ -4916,7 +5525,7 @@ function applyTouchAimDelta(dx, dy) {
   const clampedDx = Math.max(-75, Math.min(75, dx));
   const clampedDy = Math.max(-75, Math.min(75, dy));
   state.targetYaw -= clampedDx * touchSens;
-  state.targetPitch = Math.max(MIN_PITCH, Math.min(MAX_PITCH, state.targetPitch - clampedDy * touchSens));
+  state.targetPitch = Math.max(getCurrentMinPitch(), Math.min(MAX_PITCH, state.targetPitch - clampedDy * touchSens));
 }
 
 renderer.domElement.addEventListener('touchstart', (e) => {
@@ -4983,10 +5592,11 @@ if (rotateTipEl && btnDismissRotateTip) {
   });
 }
 
-// Nút bắn chính: hỗ trợ vừa giữ bắn vừa rê ngón tay để bám mục tiêu
+// Smart Thumb-Slide Fire: Chạm giữ nút bắn là khai hỏa, đồng thời rê chính ngón cái đó để xoay tháp bám mục tiêu
 const btnTouchFire = document.getElementById('btn-touch-fire');
 btnTouchFire.addEventListener('touchstart', (e) => {
   e.preventDefault();
+  e.stopPropagation();
   audio.init();
   state.firingPrimary = true;
   btnTouchFire.classList.add('is-active');
@@ -5000,6 +5610,7 @@ btnTouchFire.addEventListener('touchstart', (e) => {
 
 btnTouchFire.addEventListener('touchmove', (e) => {
   e.preventDefault();
+  e.stopPropagation();
   if (!state.running || camConfig.panelOpen) return;
   for (const t of e.changedTouches) {
     if (t.identifier === fireTouchId) {
@@ -5007,9 +5618,8 @@ btnTouchFire.addEventListener('touchmove', (e) => {
       const dy = t.clientY - fireLastY;
       fireLastX = t.clientX;
       fireLastY = t.clientY;
-      // Chỉ xoay camera từ nút bắn nếu chưa có ngón tay ngắm riêng biệt
       if (touchLookId === null) {
-        applyTouchAimDelta(dx, dy);
+        applyTouchAimDelta(dx * 1.15, dy * 1.15);
       }
     }
   }
@@ -5056,25 +5666,37 @@ document.getElementById('btn-touch-ammo-type').addEventListener('touchstart', (e
   e.preventDefault(); e.stopPropagation(); audio.init(); toggleHeavyAmmoType(); updateHUDLabels();
 }, { passive: false });
 document.getElementById('btn-touch-fuze-down').addEventListener('touchstart', (e) => {
-  e.preventDefault(); e.stopPropagation(); audio.init(); adjustFlakFuseRange(-100); updateHUDLabels();
+  e.preventDefault(); e.stopPropagation(); audio.init(); adjustFlakFuseRange(-50); updateHUDLabels();
 }, { passive: false });
 document.getElementById('btn-touch-fuze-up').addEventListener('touchstart', (e) => {
-  e.preventDefault(); e.stopPropagation(); audio.init(); adjustFlakFuseRange(100); updateHUDLabels();
+  e.preventDefault(); e.stopPropagation(); audio.init(); adjustFlakFuseRange(50); updateHUDLabels();
 }, { passive: false });
 document.getElementById('btn-touch-fuze-auto').addEventListener('touchstart', (e) => {
   e.preventDefault(); e.stopPropagation(); audio.init();
-  const target = state.lockedEnemy || state.fireControlTarget;
-  if (target && target.mesh) {
-    const camPos = new THREE.Vector3();
-    camera.getWorldPosition(camPos);
-    const dist = Math.round(camPos.distanceTo(target.mesh.position) / 50) * 50;
-    state.flakFuseRange = Math.max(250, Math.min(1800, dist));
-    showAlert(`ĐỒNG BỘ NGÒI ZÜNDER THEO MỤC TIÊU: ${state.flakFuseRange} M`);
-  } else {
-    adjustFlakFuseRange(100);
-  }
-  updateHUDLabels();
+  syncFlakFuseToTarget();
 }, { passive: false });
+
+const btnDeskFuzeDown = document.getElementById('btn-desktop-fuze-down');
+if (btnDeskFuzeDown) btnDeskFuzeDown.addEventListener('click', (e) => { e.stopPropagation(); adjustFlakFuseRange(-50); updateHUDLabels(); });
+const btnDeskFuzeUp = document.getElementById('btn-desktop-fuze-up');
+if (btnDeskFuzeUp) btnDeskFuzeUp.addEventListener('click', (e) => { e.stopPropagation(); adjustFlakFuseRange(50); updateHUDLabels(); });
+const btnDeskFuzeSync = document.getElementById('btn-desktop-fuze-sync');
+if (btnDeskFuzeSync) btnDeskFuzeSync.addEventListener('click', (e) => { e.stopPropagation(); syncFlakFuseToTarget(); });
+
+const btnTouchZeitzunder = document.getElementById('btn-touch-zeitzunder');
+if (btnTouchZeitzunder) {
+  btnTouchZeitzunder.addEventListener('touchstart', (e) => {
+    e.preventDefault(); e.stopPropagation(); audio.init();
+    cycleZeitzunderTier();
+  }, { passive: false });
+}
+
+document.querySelectorAll('[data-zeitzunder]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setZeitzunderTier(btn.getAttribute('data-zeitzunder'));
+  });
+});
 
 // ==================== WEAPON FIRING LOGIC (ALIGNED TO MAIN 12.8 CM BARREL) ====================
 function getAimDirectionAndTarget() {
@@ -5084,17 +5706,73 @@ function getAimDirectionAndTarget() {
   return { origin: raycaster.ray.origin.clone(), direction: raycaster.ray.direction.clone(), targetPoint };
 }
 
+function syncZeitzunderTierFromRange() {
+  let closest = ZEITZUNDER_TIERS[1];
+  let minDiff = Infinity;
+  for (const tier of ZEITZUNDER_TIERS) {
+    const d = Math.abs(state.flakFuseRange - tier.range);
+    if (d < minDiff) { minDiff = d; closest = tier; }
+  }
+  state.zeitzunderTier = closest.id;
+}
+
+function setZeitzunderTier(tierId) {
+  const tier = ZEITZUNDER_TIERS.find(t => t.id === tierId) || ZEITZUNDER_TIERS[1];
+  state.zeitzunderTier = tier.id;
+  state.flakFuseRange = tier.range;
+  showAlert(`NGÒI ZEITZÜNDER: MỨC ${tier.label} (${tier.range} M)`);
+  updateHUDLabels();
+}
+
+function cycleZeitzunderTier() {
+  const idx = ZEITZUNDER_TIERS.findIndex(t => t.id === state.zeitzunderTier);
+  const next = ZEITZUNDER_TIERS[(idx + 1) % ZEITZUNDER_TIERS.length];
+  setZeitzunderTier(next.id);
+}
+
 function adjustFlakFuseRange(delta) {
   state.flakFuseRange = Math.max(250, Math.min(1800, state.flakFuseRange + delta));
   state.flakFuseRange = Math.round(state.flakFuseRange / 50) * 50;
+  syncZeitzunderTierFromRange();
   showAlert(`NGÒI ZÜNDER 128 MM: ${state.flakFuseRange} M`);
+  updateHUDLabels();
 }
 
+function syncFlakFuseToTarget() {
+  if (state.rangefinderJamTimer > 0) {
+    showAlert('MÁY ĐO XA K40 ĐANG NHIỄU — CHỈNH NGÒI THỦ CÔNG!');
+    return;
+  }
+  const target = state.fireControlTarget || state.lockedEnemy || groundTargets[0];
+  if (target && target.mesh) {
+    const muzzlePos = new THREE.Vector3();
+    mainMuzzleTip.getWorldPosition(muzzlePos);
+    const vel = target.velocity || new THREE.Vector3();
+    const rawDist = muzzlePos.distanceTo(target.mesh.position);
+    const tof = Math.min(2.0, rawDist / 690);
+    const leadPos = target.mesh.position.clone().addScaledVector(vel, tof);
+    const dist = Math.round(muzzlePos.distanceTo(leadPos) / 50) * 50;
+    state.flakFuseRange = Math.max(250, Math.min(1800, dist));
+    syncZeitzunderTierFromRange();
+    showAlert(`K40 ĐỒNG BỘ NGÒI ZÜNDER: ${state.flakFuseRange} M (${target.name || 'MỤC TIÊU'})`);
+  } else {
+    adjustFlakFuseRange(50);
+  }
+  updateHUDLabels();
+}
+
+const HEAVY_AMMO_TYPES = ['HE', 'AP', 'SHRAP'];
 function toggleHeavyAmmoType() {
-  state.heavyAmmoType = state.heavyAmmoType === 'HE' ? 'AP' : 'HE';
-  showAlert(state.heavyAmmoType === 'HE'
-    ? '128 MM: HE-TIMED — NỔ MẢNH THEO NGÒI ĐỊNH THỜI'
-    : '128 MM: AP — ĐẠN XUYÊN GIÁP CHẠM NỔ');
+  const idx = HEAVY_AMMO_TYPES.indexOf(state.heavyAmmoType);
+  state.heavyAmmoType = HEAVY_AMMO_TYPES[(idx + 1) % HEAVY_AMMO_TYPES.length];
+  if (state.heavyAmmoType === 'HE') {
+    showAlert('128 MM: HE-TIMED — NỔ MẢNH DIỆN RỘNG TRỊ OANH TẠC CƠ');
+  } else if (state.heavyAmmoType === 'AP') {
+    showAlert('128 MM: AP — XUYÊN GIÁP ĐỘNG NĂNG 900M/S TRỊ XE TĂNG & ĐỘNG CƠ');
+  } else {
+    showAlert('128 MM: SHRAPNEL — ĐẠN CHÙM MẢNH VĂNG CHỐNG TIÊM KÍCH TẦM GẦN');
+  }
+  updateHUDLabels();
 }
 
 function getFireControlPoint(origin, projectileSpeed) {
@@ -5288,13 +5966,18 @@ function fireFlak128() {
   }
 
   triggerMainMuzzleEffects(1.85, 16.0, 1.65);
+  state.muzzleShockwaveTimer = 0.10;
+  muzzleShockwaveRing.visible = true;
+  muzzleShockwaveRing.scale.setScalar(0.65);
+  muzzleShockwaveMat.opacity = 0.92;
+  muzzleDeckFlashLight.intensity = 24.0;
   state.flashBlindTimer = Math.max(state.flashBlindTimer, 1.45);
 
   const muzzlePos = new THREE.Vector3();
   mainMuzzleTip.getWorldPosition(muzzlePos);
 
   const selectedAmmoType = state.heavyAmmoType;
-  const muzzleSpeed = selectedAmmoType === 'AP' ? 900 : 690;
+  const muzzleSpeed = selectedAmmoType === 'AP' ? 900 : (selectedAmmoType === 'SHRAP' ? 740 : 690);
   const targetPoint = getFireControlPoint(muzzlePos, muzzleSpeed);
   const dir = targetPoint.sub(muzzlePos).normalize();
   const solutionQuality = state.rangefinderJamTimer > 0 ? 0 : state.fireControlQuality;
@@ -5307,18 +5990,21 @@ function fireFlak128() {
   const shell = new THREE.Mesh(flakShellGeometry, flakShellMaterial);
   shell.position.copy(muzzlePos).addScaledVector(dir, 1.0);
   scene.add(shell);
-  const measuredFuseRange = state.flakFuseRange + (state.rangefinderJamTimer > 0 ? (Math.random() - 0.5) * 360 : 0);
+  const rawFuse = selectedAmmoType === 'SHRAP' ? Math.min(state.flakFuseRange, 720) : state.flakFuseRange;
+  const measuredFuseRange = rawFuse + (state.rangefinderJamTimer > 0 ? (Math.random() - 0.5) * 360 : 0);
+  const clampedFuse = Math.max(250, Math.min(1800, measuredFuseRange));
 
   projectiles.push({
     mesh: shell,
     vel: dir.multiplyScalar(muzzleSpeed),
-    life: selectedAmmoType === 'AP' ? 2.0 : Math.max(250, Math.min(1800, measuredFuseRange)) / 690,
-    fuseRange: Math.max(250, Math.min(1800, measuredFuseRange)),
+    life: selectedAmmoType === 'AP' ? 2.0 : clampedFuse / muzzleSpeed,
+    fuseRange: clampedFuse,
     damage: 215 + (state.upgrades.flak - 1) * 45,
     blastRadius: 48 + (state.upgrades.flak - 1) * 8,
     ammoType: selectedAmmoType,
     isFlakAP: selectedAmmoType === 'AP',
-    isHeavy: selectedAmmoType === 'HE',
+    isFlakShrapnel: selectedAmmoType === 'SHRAP',
+    isHeavy: selectedAmmoType === 'HE' || selectedAmmoType === 'SHRAP',
     isAllied: false,
     isPlayerShot: true,
     age: 0
@@ -5359,7 +6045,7 @@ function fireRheintochterSAM() {
     target: state.lockedEnemy,
     speed: 255,
     life: 7.0,
-    turnRate: 1.15,
+    turnRate: 1.15 + (state.upgrades.warhead - 1) * 0.25,
     velocity: initialSight.multiplyScalar(255),
     smokeTimer: 0
   });
@@ -5389,13 +6075,22 @@ function spawnFlakBurst(pos, radius, visualOnly = false) {
   if (!visualOnly) playSpatialExplosion(pos, 0.92);
   if (pos.y > 150 && pos.y < 355) state.cloudFlashTimer = Math.max(state.cloudFlashTimer, 0.68);
 
-  const smoke = new THREE.Mesh(
-    new THREE.DodecahedronGeometry(radius * 0.52, 1),
-    new THREE.MeshBasicMaterial({ color: 0x1a1817, transparent: true, opacity: 0.9 })
-  );
-  smoke.position.copy(pos);
-  scene.add(smoke);
-  flakClouds.push({ mesh: smoke, life: 2.1, maxLife: 2.1 });
+  // Mây mảnh văng đen đặc nhiều lớp đặc trưng của đạn nổ định thời Flak 40
+  const puffCount = graphicsQuality === 'low' ? 2 : 4;
+  for (let c = 0; c < puffCount; c++) {
+    const puffShade = c === 0 ? 0x0b0a09 : (c % 2 === 1 ? 0x161413 : 0x221f1d);
+    const smoke = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(radius * (0.48 + c * 0.08), 1),
+      new THREE.MeshBasicMaterial({ color: puffShade, transparent: true, opacity: 0.94 })
+    );
+    smoke.position.copy(pos).add(new THREE.Vector3(
+      (Math.random() - 0.5) * radius * 0.55,
+      (Math.random() - 0.5) * radius * 0.42,
+      (Math.random() - 0.5) * radius * 0.55
+    ));
+    scene.add(smoke);
+    flakClouds.push({ mesh: smoke, life: 2.5 + Math.random() * 0.4, maxLife: 2.9, expandRate: 0.25 });
+  }
 
   const core = new THREE.Mesh(
     new THREE.SphereGeometry(radius * 0.36, 10, 10),
@@ -5403,7 +6098,7 @@ function spawnFlakBurst(pos, radius, visualOnly = false) {
   );
   core.position.copy(pos);
   scene.add(core);
-  flakClouds.push({ mesh: core, life: 0.42, maxLife: 0.42 });
+  flakClouds.push({ mesh: core, life: 0.38, maxLife: 0.38 });
   if (pos.y > 155) triggerPooledExplosionLight(pos, radius * 1.4, 210, 0.65);
 
   let hitCount = 0;
@@ -5431,6 +6126,20 @@ function spawnFlakBurst(pos, radius, visualOnly = false) {
         damageEnemy(e, i, dmg, false, true, 'flak', e.mesh.position);
       }
     }
+    for (let i = pathfinderFlares.length - 1; i >= 0; i--) {
+      const flare = pathfinderFlares[i];
+      if (flare.mesh.position.distanceTo(pos) <= radius + flare.hitRadius) {
+        hitCount++;
+        destroyParachuteFlare(i);
+      }
+    }
+    for (let i = groundTargets.length - 1; i >= 0; i--) {
+      const gt = groundTargets[i];
+      if (gt.mesh.position.distanceTo(pos) <= radius + gt.hitRadius) {
+        hitCount++;
+        damageGroundTarget(gt, i, dmg * 0.72, false);
+      }
+    }
     for (let i = friendlyJets.length - 1; i >= 0; i--) {
       const jet = friendlyJets[i];
       if (jet.mesh.position.distanceTo(pos) <= radius + 10) {
@@ -5441,6 +6150,42 @@ function spawnFlakBurst(pos, radius, visualOnly = false) {
     }
   }
   return hitCount;
+}
+
+function spawnShrapnelCone(pos, forwardVel) {
+  playSpatialExplosion(pos, 0.86);
+  const burstFlash = new THREE.Mesh(
+    new THREE.SphereGeometry(8.5, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0xe879f9, transparent: true, opacity: 0.9, depthWrite: false })
+  );
+  burstFlash.position.copy(pos);
+  scene.add(burstFlash);
+  flakClouds.push({ mesh: burstFlash, life: 0.28, maxLife: 0.28 });
+
+  const forwardDir = forwardVel.clone().normalize();
+  const pelletCount = 14 + (state.upgrades.warhead - 1) * 3;
+  const pelletDmg = 34 + (state.upgrades.flak - 1) * 7;
+  for (let k = 0; k < pelletCount; k++) {
+    const spreadDir = forwardDir.clone().add(new THREE.Vector3(
+      (Math.random() - 0.5) * 0.34,
+      (Math.random() - 0.5) * 0.34,
+      (Math.random() - 0.5) * 0.34
+    )).normalize();
+    const pellet = new THREE.Mesh(primaryProjectileGeometry, jetProjectileMaterial);
+    pellet.position.copy(pos);
+    pellet.lookAt(pos.clone().add(spreadDir));
+    scene.add(pellet);
+    projectiles.push({
+      mesh: pellet,
+      vel: spreadDir.multiplyScalar(820),
+      life: 0.42,
+      damage: pelletDmg,
+      isHeavy: false,
+      isAllied: false,
+      isPlayerShot: true,
+      age: 0
+    });
+  }
 }
 
 function damageFriendlyJet(jet, index, damage, cause = 'MẢNH ĐẠN CAO XẠ BẮN NHẦM') {
@@ -5456,6 +6201,8 @@ function damageFriendlyJet(jet, index, damage, cause = 'MẢNH ĐẠN CAO XẠ B
     isLargeBomber: false
   });
   friendlyJets.splice(index, 1);
+  const countEl = document.getElementById('me262-count');
+  if (countEl) countEl.textContent = friendlyJets.length;
   showAlert(`${jet.name} BỊ HẠ BỞI ${cause}!`);
 }
 
@@ -5705,26 +6452,78 @@ function pickBerlinBombingLane(maxSpread = 240) {
   return new THREE.Vector3(Math.cos(ang) * dist, 0, Math.sin(ang) * dist);
 }
 
+function destroyParachuteFlare(index) {
+  const flare = pathfinderFlares[index];
+  if (!flare) return;
+  const pos = flare.mesh.position.clone();
+  spawnFlakBurst(pos, 18, true);
+  scene.remove(flare.mesh, flare.beam, flare.light);
+  disposeStandaloneObject(flare.mesh);
+  flare.beam.geometry.dispose();
+  flare.beam.material.dispose();
+  pathfinderFlares.splice(index, 1);
+
+  state.scrap += 50;
+  state.totalScrapEarned += 50;
+  if (pathfinderFlares.length === 0) {
+    state.pathfinderStatus = 'neutralized';
+  }
+  showAlert('ĐÃ BẮN RỤNG PHÁO SÁNG TREO DÙ (+50 QC) — TRIỆT TIÊU ĐỘ CHÍNH XÁC 2X CỦA ĐỊCH!');
+}
+
 function dropPathfinderFlare(position, sourceLabel = 'PATHFINDER') {
-  state.pathfinderTarget.set(position.x, 0, position.z);
-  const flareMesh = new THREE.Mesh(
-    new THREE.SphereGeometry(2.6, 8, 6),
-    new THREE.MeshBasicMaterial({ color: 0xffc247, transparent: true, opacity: 0.95 })
+  const towerOffsetAng = Math.random() * Math.PI * 2;
+  const towerOffsetDist = 35 + Math.random() * 85;
+  const targetX = flak40Station.position.x + Math.cos(towerOffsetAng) * towerOffsetDist;
+  const targetZ = flak40Station.position.z + Math.sin(towerOffsetAng) * towerOffsetDist;
+  state.pathfinderTarget.set(targetX, 0, targetZ);
+
+  const flareGroup = new THREE.Group();
+  const canister = new THREE.Mesh(
+    new THREE.SphereGeometry(2.8, 10, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffe066, transparent: true, opacity: 0.98 })
   );
-  flareMesh.position.copy(state.pathfinderTarget).add(new THREE.Vector3(0, 7, 0));
+  const chuteCanopy = new THREE.Mesh(
+    new THREE.SphereGeometry(5.8, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.56),
+    new THREE.MeshBasicMaterial({ color: 0xf8fafc, side: THREE.DoubleSide })
+  );
+  chuteCanopy.position.y = 9.5;
+  const shroud = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.15, 2.2, 7.5, 6, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xe2e8f0, wireframe: true })
+  );
+  shroud.position.y = 5.2;
+  flareGroup.add(canister, chuteCanopy, shroud);
+  flareGroup.position.set(targetX, 195, targetZ);
+
   const beaconBeam = new THREE.Mesh(
-    new THREE.CylinderGeometry(1.2, 4.5, 38, 10, 1, true),
-    new THREE.MeshBasicMaterial({ color: 0xffa51f, transparent: true, opacity: 0.26, side: THREE.DoubleSide, depthWrite: false })
+    new THREE.CylinderGeometry(1.4, 5.2, 54, 10, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xffa51f, transparent: true, opacity: 0.24, side: THREE.DoubleSide, depthWrite: false })
   );
-  beaconBeam.position.copy(state.pathfinderTarget).add(new THREE.Vector3(0, 20, 0));
-  const light = new THREE.PointLight(0xffa42a, 55, 280);
-  light.position.copy(flareMesh.position);
-  scene.add(flareMesh, beaconBeam, light);
-  pathfinderFlares.push({ mesh: flareMesh, beam: beaconBeam, light, sourceLabel, life: 14, maxLife: 14 });
+  beaconBeam.position.copy(flareGroup.position).add(new THREE.Vector3(0, -18, 0));
+
+  const light = new THREE.PointLight(0xffb732, 75, 340);
+  light.position.copy(flareGroup.position);
+  scene.add(flareGroup, beaconBeam, light);
+
+  pathfinderFlares.push({
+    mesh: flareGroup,
+    coreMat: canister.material,
+    beam: beaconBeam,
+    light,
+    sourceLabel,
+    hp: 35,
+    hitRadius: 12,
+    fallSpeed: 7.2,
+    phase: Math.random() * Math.PI * 2,
+    life: 24,
+    maxLife: 24
+  });
+
   if (!state.masterBomberDown) state.pathfinderStatus = 'lit';
   showAlert(state.masterBomberDown
     ? `${sourceLabel} THẢ PHÁO SÁNG NHƯNG ĐỘI HÌNH ĐÃ MẤT LIÊN LẠC!`
-    : `${sourceLabel} THẢ PHÁO SÁNG — BOMBER ĐANG BÁM THEO ĐIỂM CHỈ THỊ!`);
+    : `${sourceLabel} THẢ PHÁO SÁNG TREO DÙ — BẮN RỤNG NGAY ĐỂ CHẶN BOM CHÍNH XÁC 2X!`);
 }
 
 function spawnWaveEnemy() {
@@ -5831,6 +6630,61 @@ function spawnWaveEnemy() {
   });
   const enemy = enemies[enemies.length - 1];
   enemy.mesh.add(enemy.searchlightGlow);
+}
+
+function spawnSovietArmorWave(waveNum) {
+  const count = Math.min(6, 2 + Math.floor((waveNum - 3) * 0.8));
+  const hpScale = 1 + (waveNum - 4) * 0.16;
+  const types = ['t34', 'is2', 'su152'];
+  for (let k = 0; k < count; k++) {
+    const armorType = types[(waveNum + k) % types.length];
+    const { mesh, turretPivot } = buildSovietArmorMesh(armorType);
+    const roadAng = (k / count) * Math.PI * 2 + (waveNum * 0.55);
+    const startDist = 760 + k * 55;
+    const stopDist = 285 + (k % 3) * 45;
+    mesh.position.set(Math.cos(roadAng) * startDist, 0.2, Math.sin(roadAng) * startDist);
+    mesh.lookAt(flak40Station.position.x, 0.2, flak40Station.position.z);
+    scene.add(mesh);
+
+    const spec = {
+      t34:   { name: 'T-34/85', hp: 250 * hpScale, speed: 19, dmg: 3.5, reward: 95,  hitRadius: 11 },
+      is2:   { name: 'IS-2 HẠNG NẶNG', hp: 410 * hpScale, speed: 14, dmg: 5.5, reward: 135, hitRadius: 12 },
+      su152: { name: 'PHÁO TỰ HÀNH SU-152', hp: 330 * hpScale, speed: 16, dmg: 6.5, reward: 120, hitRadius: 12 }
+    }[armorType];
+
+    groundTargets.push({
+      armorType,
+      name: spec.name,
+      mesh,
+      turretPivot,
+      hp: spec.hp,
+      maxHp: spec.hp,
+      speed: spec.speed,
+      dmg: spec.dmg,
+      reward: spec.reward,
+      hitRadius: spec.hitRadius,
+      stopDist,
+      fireCooldown: 4.5 + k * 1.4,
+      smokeTimer: 0
+    });
+  }
+}
+
+function damageGroundTarget(gt, index, dmg, isAllied = false) {
+  gt.hp -= dmg;
+  if (!isAllied) audio.playHit();
+  if (gt.hp <= 0) {
+    const pos = gt.mesh.position.clone();
+    spawnCityGroundExplosion(pos, 1.35, true);
+    scene.remove(gt.mesh);
+    disposeStandaloneObject(gt.mesh);
+    groundTargets.splice(index, 1);
+    state.scrap += gt.reward;
+    state.totalScrapEarned += gt.reward;
+    state.kills++;
+    state.tankKills++;
+    showAlert(`ĐÃ TIÊU DIỆT ${gt.name} (+${gt.reward} QC)!`);
+  }
 }
 
 function beginEnemyDive(enemy, reason = 'damaged') {
@@ -6174,13 +7028,20 @@ function dropEnemyBombSalvo(enemy) {
     ));
     scene.add(bombMesh);
 
-    let targetCity = Math.random() < (state.pathfinderStatus === 'lit' ? 0.94 : 0.78);
+    const flareLit = state.pathfinderStatus === 'lit';
+    let targetCity = Math.random() < (flareLit ? 0.56 : 0.78);
     const missed = (state.pathfinderStatus === 'neutralized' && Math.random() < 0.82) || (enemy.panicked && Math.random() < 0.9);
     if (missed) targetCity = true;
     let targetPos;
-    if (state.pathfinderStatus === 'lit' && targetCity) {
+    if (flareLit && !targetCity) {
+      targetPos = new THREE.Vector3(
+        flak40Station.position.x + (Math.random() - 0.5) * 18,
+        flak40Station.position.y,
+        flak40Station.position.z + (Math.random() - 0.5) * 18
+      );
+    } else if (flareLit && targetCity) {
       targetPos = state.pathfinderTarget.clone().add(new THREE.Vector3(
-        (Math.random() - 0.5) * 90, 2, (Math.random() - 0.5) * 90
+        (Math.random() - 0.5) * 48, 2, (Math.random() - 0.5) * 48
       ));
     } else if (missed) {
       const scatter = 520 + Math.random() * 360;
@@ -6461,15 +7322,131 @@ function drawHUDAndRadar() {
     state.fireControlTarget = bestLockCandidate;
     state.fireControlTrackSeconds = 0;
     state.fireControlQuality = 0;
+    state.fireControlVoiceAnnounced = false;
   } else if (bestLockCandidate && state.rangefinderJamTimer <= 0) {
-    if (aimSlew < 1.05) state.fireControlTrackSeconds = Math.min(2.4, state.fireControlTrackSeconds + trackDt);
-    else state.fireControlTrackSeconds = Math.max(0, state.fireControlTrackSeconds - trackDt * 2.4);
-    const progress = Math.min(1, state.fireControlTrackSeconds / 2.1);
+    const radarSpeedMult = 1 + (state.upgrades.radar - 1) * 0.25;
+    if (aimSlew < 1.15) state.fireControlTrackSeconds = Math.min(2.0, state.fireControlTrackSeconds + trackDt * radarSpeedMult);
+    else state.fireControlTrackSeconds = Math.max(0, state.fireControlTrackSeconds - trackDt * 2.1);
+    const progress = Math.min(1, state.fireControlTrackSeconds / 1.5);
     state.fireControlQuality = progress * progress * (3 - 2 * progress);
+
+    if (state.fireControlQuality >= 0.96 && !state.fireControlVoiceAnnounced) {
+      state.fireControlVoiceAnnounced = true;
+      const targetWorld = new THREE.Vector3();
+      bestLockCandidate.mesh.getWorldPosition(targetWorld);
+      const distMeters = Math.round(camWorldPos.distanceTo(targetWorld) / 10) * 10;
+      flakVoice.speak('RANGEFINDER_LOCK', false, `Entfernung ${distMeters} Meter! Vorhalt steht!`);
+      showAlert(`KOMMANDOGERÄT 40: CỰ LY ${distMeters} M — HIỆN VÒNG ĐÓN ĐẦU!`);
+    }
   } else {
     state.fireControlTrackSeconds = Math.max(0, state.fireControlTrackSeconds - trackDt * 2.0);
     state.fireControlQuality = 0;
+    state.fireControlVoiceAnnounced = false;
   }
+
+  // Vẽ vòng tròn đón đầu (Lead Circle) của Kommandogerät 40
+  if (state.fireControlTarget && enemies.includes(state.fireControlTarget) && state.fireControlQuality >= 0.25 && state.rangefinderJamTimer <= 0) {
+    const fcTarget = state.fireControlTarget;
+    const fcTargetPos = new THREE.Vector3();
+    fcTarget.mesh.getWorldPosition(fcTargetPos);
+    const muzzleWorld = new THREE.Vector3();
+    mainMuzzleTip.getWorldPosition(muzzleWorld);
+    const projSpeed = state.heavyAmmoType === 'AP' ? 900 : 690;
+    const distToTgt = muzzleWorld.distanceTo(fcTargetPos);
+    const tof = Math.min(2.2, distToTgt / projSpeed);
+    const leadWorld = fcTargetPos.clone().addScaledVector(fcTarget.velocity, tof);
+    leadWorld.y += 0.5 * 9.81 * tof * tof;
+
+    const tgtProj = fcTargetPos.clone().project(camera);
+    const leadProj = leadWorld.clone().project(camera);
+    if (leadProj.z < 1) {
+      const tx = (tgtProj.x * 0.5 + 0.5) * w;
+      const ty = (-tgtProj.y * 0.5 + 0.5) * h;
+      const lx = (leadProj.x * 0.5 + 0.5) * w;
+      const ly = (-leadProj.y * 0.5 + 0.5) * h;
+
+      hudCtx.save();
+      hudCtx.strokeStyle = 'rgba(74, 222, 128, 0.55)';
+      hudCtx.setLineDash([4, 4]);
+      hudCtx.beginPath();
+      hudCtx.moveTo(tx, ty);
+      hudCtx.lineTo(lx, ly);
+      hudCtx.stroke();
+      hudCtx.setLineDash([]);
+
+      const leadRadius = Math.max(11, 26 - state.fireControlQuality * 13);
+      hudCtx.strokeStyle = state.fireControlQuality >= 0.85 ? '#4ade80' : '#facc15';
+      hudCtx.lineWidth = 2;
+      hudCtx.beginPath();
+      hudCtx.arc(lx, ly, leadRadius, 0, Math.PI * 2);
+      hudCtx.stroke();
+
+      hudCtx.beginPath();
+      hudCtx.moveTo(lx - leadRadius - 4, ly); hudCtx.lineTo(lx - leadRadius + 3, ly);
+      hudCtx.moveTo(lx + leadRadius - 3, ly); hudCtx.lineTo(lx + leadRadius + 4, ly);
+      hudCtx.moveTo(lx, ly - leadRadius - 4); hudCtx.lineTo(lx, ly - leadRadius + 3);
+      hudCtx.moveTo(lx, ly + leadRadius - 3); hudCtx.lineTo(lx, ly + leadRadius + 4);
+      hudCtx.stroke();
+
+      if (state.fireControlQuality >= 0.85) {
+        hudCtx.fillStyle = '#4ade80';
+        hudCtx.font = 'bold 9.5px "Share Tech Mono"';
+        hudCtx.fillText(`ĐÓN ĐẦU [${Math.round(distToTgt)}M]`, lx + leadRadius + 6, ly + 3);
+      }
+      hudCtx.restore();
+    }
+  }
+
+  // Vẽ khung nhận diện pháo sáng treo dù có thể bắn rụng
+  pathfinderFlares.forEach(flare => {
+    const fPos = flare.mesh.position.clone();
+    const toFlare = fPos.clone().sub(camWorldPos);
+    const dist = toFlare.length();
+    if (forward.dot(toFlare.normalize()) > 0.05) {
+      const proj = fPos.project(camera);
+      const sx = (proj.x * 0.5 + 0.5) * w;
+      const sy = (-proj.y * 0.5 + 0.5) * h;
+      if (proj.z < 1 && sx >= 16 && sx <= w - 16 && sy >= 16 && sy <= h - 16) {
+        hudCtx.strokeStyle = '#fde047';
+        hudCtx.lineWidth = 1.6;
+        hudCtx.beginPath();
+        hudCtx.moveTo(sx, sy - 16);
+        hudCtx.lineTo(sx + 14, sy);
+        hudCtx.lineTo(sx, sy + 16);
+        hudCtx.lineTo(sx - 14, sy);
+        hudCtx.closePath();
+        hudCtx.stroke();
+        hudCtx.fillStyle = '#fef08a';
+        hudCtx.font = 'bold 9.5px "Share Tech Mono"';
+        hudCtx.fillText(`PHÁO SÁNG DÙ [${Math.round(dist)}M]`, sx - 44, sy - 20);
+      }
+    }
+  });
+
+  // Vẽ khung mục tiêu thiết giáp mặt đất (Từ Đợt 4)
+  groundTargets.forEach(gt => {
+    const gPos = gt.mesh.position.clone().add(new THREE.Vector3(0, 3, 0));
+    const toGt = gPos.clone().sub(camWorldPos);
+    const dist = toGt.length();
+    if (forward.dot(toGt.normalize()) > 0.05) {
+      const proj = gPos.project(camera);
+      const sx = (proj.x * 0.5 + 0.5) * w;
+      const sy = (-proj.y * 0.5 + 0.5) * h;
+      if (proj.z < 1 && sx >= 16 && sx <= w - 16 && sy >= 16 && sy <= h - 16) {
+        hudCtx.strokeStyle = '#f97316';
+        hudCtx.lineWidth = 2;
+        hudCtx.strokeRect(sx - 18, sy - 14, 36, 28);
+        const hpRatio = Math.max(0, gt.hp / gt.maxHp);
+        hudCtx.fillStyle = 'rgba(0,0,0,0.75)';
+        hudCtx.fillRect(sx - 18, sy - 20, 36, 4);
+        hudCtx.fillStyle = '#fb923c';
+        hudCtx.fillRect(sx - 18, sy - 20, 36 * hpRatio, 4);
+        hudCtx.fillStyle = '#fdba74';
+        hudCtx.font = 'bold 9.5px "Share Tech Mono"';
+        hudCtx.fillText(`[ĐỐI ĐẤT] ${gt.name} [${Math.round(dist)}M]`, sx - 42, sy + 24);
+      }
+    }
+  });
   if (state.rangefinderJamTimer > 0) state.fireControlQuality = 0;
   state.fireControlAimYaw = state.targetYaw;
   state.fireControlAimPitch = state.targetPitch;
@@ -6528,6 +7505,15 @@ function drawHUDAndRadar() {
     radarCtx.arc(rcx + rx * scale, rcy + rz * scale, isBomber ? 3.2 : 2.2, 0, Math.PI * 2);
     radarCtx.fill();
   });
+
+  groundTargets.forEach(gt => {
+    const rx = (gt.mesh.position.x / 850) * maxR;
+    const rz = (gt.mesh.position.z / 850) * maxR;
+    const d = Math.hypot(rx, rz);
+    const scale = d > maxR - 4 ? (maxR - 4) / d : 1;
+    radarCtx.fillStyle = '#fb923c';
+    radarCtx.fillRect(rcx + rx * scale - 2.5, rcy + rz * scale - 2.5, 5, 5);
+  });
 }
 
 // ==================== UI & WAVE MANAGEMENT ====================
@@ -6549,18 +7535,40 @@ function syncRecordDisplays() {
 }
 syncRecordDisplays();
 
+function getMainAmmoCost() {
+  return 60 + state.ammoMainBought * 20;
+}
+
+function getHeavyAmmoCost() {
+  return 75 + state.ammoHeavyBought * 25;
+}
+
+function getEmergencyResupplyCost() {
+  return 60 + state.emergencyResupplyCount * 15;
+}
+
+function getRepairQuote() {
+  const turretDmg = Math.max(0, 100 - state.turretHp);
+  const berlinDmg = Math.max(0, 100 - state.berlinHp);
+  const totalDmg = turretDmg + berlinDmg;
+  const cost = totalDmg > 0 ? Math.max(5, Math.ceil(totalDmg * 1.2)) : 0;
+  return { turretDmg, berlinDmg, totalDmg, cost };
+}
+
 function callEmergencyResupply() {
   if (!state.running || state.resupplyCooldown > 0) return;
-  if (state.scrap < 60) {
-    showAlert('KHÔNG ĐỦ QUÂN CÔNG (CẦN 60 QC ĐỂ GỌI THANG TIẾP ĐẠN)!');
+  const cost = getEmergencyResupplyCost();
+  if (state.scrap < cost) {
+    showAlert(`KHÔNG ĐỦ QUÂN CÔNG (CẦN ${cost} QC ĐỂ GỌI THANG TIẾP ĐẠN)!`);
     return;
   }
-  state.scrap -= 60;
+  state.scrap -= cost;
+  state.emergencyResupplyCount++;
   state.primaryAmmo += 900;
   state.flakAmmo += 6;
   state.samAmmo += 2;
   state.resupplyCooldown = 2.5;
-  showAlert('THANG TIẾP ĐẠN HOÀN TẤT: +900 ĐẠN CHÍNH, +6 ĐẠN 128MM, +2 R1!');
+  showAlert(`THANG TIẾP ĐẠN HOÀN TẤT (-${cost} QC): +900 ĐẠN CHÍNH, +6 ĐẠN 128MM, +2 R1!`);
   updateHUDLabels();
 }
 
@@ -6590,9 +7598,18 @@ function updateHUDLabels() {
   document.getElementById('barrel-wear-label').style.color = state.barrelWear > 0.7 ? '#fb923c' : '#d6c8a6';
 
   const isBossWave = (state.wave % 5 === 0);
-  document.getElementById('wave-label').textContent = isBossWave
-    ? `ĐỢT ${state.wave} • TỔNG LỰC`
-    : `ĐỢT ${state.wave} • VÔ TẬN`;
+  if (state.gameMode === 'campaign') {
+    document.getElementById('wave-label').textContent = isBossWave
+      ? `ĐỢT ${state.wave}/${CAMPAIGN_MAX_WAVES} • TỔNG LỰC`
+      : `ĐỢT ${state.wave}/${CAMPAIGN_MAX_WAVES} • CHIẾN DỊCH`;
+  } else {
+    document.getElementById('wave-label').textContent = isBossWave
+      ? `ĐỢT ${state.wave} • TỔNG LỰC`
+      : `ĐỢT ${state.wave} • VÔ TẬN`;
+  }
+  const balloonEl = document.getElementById('balloon-count');
+  if (balloonEl) balloonEl.textContent = `${barrageBalloons.filter(b => b.intact).length}/${barrageBalloons.length}`;
+  syncRankDisplays();
   const daybreakLabel = document.getElementById('daybreak-label');
   const dawnPercent = Math.round(state.dawnProgress * 100);
   daybreakLabel.textContent = dawnPercent < 8 ? `ĐÊM BERLIN • ${dawnPercent}%` : `RẠNG ĐÔNG • ${dawnPercent}%`;
@@ -6600,8 +7617,16 @@ function updateHUDLabels() {
   document.getElementById('zoom-val').textContent = state.zoomed
     ? (state.dawnProgress > 0.55 ? 'ỐNG NHÒM: 2.8X' : 'ỐNG NGẮM: 2.8X')
     : (state.dawnProgress > 0.55 ? 'ỐNG NHÒM: 1.0X' : 'ỐNG NGẮM: 1.0X');
-  document.getElementById('enemy-count-label').textContent = `MỤC TIÊU: ${enemies.length + state.enemiesRemainingToSpawn} / ${state.waveTotalEnemies}`;
+  const groundStr = groundTargets.length > 0 ? ` | XE TĂNG: ${groundTargets.length}` : '';
+  document.getElementById('enemy-count-label').textContent = `MỤC TIÊU: ${enemies.length + state.enemiesRemainingToSpawn} / ${state.waveTotalEnemies}${groundStr}`;
   document.getElementById('scrap-label').textContent = state.scrap;
+  const me262El = document.getElementById('me262-count');
+  if (me262El) me262El.textContent = friendlyJets.length;
+  const emergCost = getEmergencyResupplyCost();
+  const quickResupplyEl = document.getElementById('btn-quick-resupply');
+  if (quickResupplyEl) quickResupplyEl.textContent = `[B] TIẾP ĐẠN (${emergCost})`;
+  const touchResupplyEl = document.getElementById('btn-touch-resupply');
+  if (touchResupplyEl) touchResupplyEl.textContent = `TIẾP ĐẠN (${emergCost})`;
 
   // Primary Autocannon Ammo HUD
   const primEl = document.getElementById('primary-ammo-val');
@@ -6665,11 +7690,20 @@ function updateHUDLabels() {
     touchAmmoTypeBtn.textContent = `128: ${state.heavyAmmoType}`;
     touchAmmoTypeBtn.classList.toggle('mode-he', state.heavyAmmoType === 'HE');
     touchAmmoTypeBtn.classList.toggle('mode-ap', state.heavyAmmoType === 'AP');
+    touchAmmoTypeBtn.classList.toggle('mode-shrap', state.heavyAmmoType === 'SHRAP');
   }
   const touchFuzeAutoBtn = document.getElementById('btn-touch-fuze-auto');
   if (touchFuzeAutoBtn) {
     touchFuzeAutoBtn.textContent = `NGÒI ${state.flakFuseRange}M`;
   }
+  const activeTierObj = ZEITZUNDER_TIERS.find(t => t.id === state.zeitzunderTier) || ZEITZUNDER_TIERS[1];
+  const touchZeitzunderBtn = document.getElementById('btn-touch-zeitzunder');
+  if (touchZeitzunderBtn) {
+    touchZeitzunderBtn.textContent = `ZÜNDER: ${activeTierObj.label}`;
+  }
+  document.querySelectorAll('[data-zeitzunder]').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-zeitzunder') === state.zeitzunderTier);
+  });
   if (false) {
   }
 }
@@ -6696,12 +7730,37 @@ function startWave(waveNum) {
     syncRecordDisplays();
   }
 
-  syncFriendlySquadron();
+  if (waveNum === 1 && friendlyJets.length === 0) {
+    initStartingFriendlySquadron();
+  } else {
+    const countEl = document.getElementById('me262-count');
+    if (countEl) countEl.textContent = friendlyJets.length;
+  }
   document.getElementById('main-menu').classList.add('hidden');
   document.getElementById('armory-screen').classList.add('hidden');
+  document.getElementById('victory-screen').classList.add('hidden');
   document.getElementById('gameover-screen').classList.add('hidden');
 
-  if (waveNum % 5 === 0) {
+  barrageBalloons.forEach(b => {
+    if (!b.intact) {
+      b.intact = true;
+      b.hp = 110;
+      b.mesh.visible = true;
+      b.cable.visible = true;
+    }
+  });
+
+  if (waveNum >= 4) {
+    spawnSovietArmorWave(waveNum);
+    if (!state.groundDepressionUnlocked) {
+      state.groundDepressionUnlocked = true;
+      flakVoice.speak('TANK_ALERT', true);
+      showAlert('ĐỢT 4 • LỊCH SỬ THÁP ZOO: MỞ KHÓA HẠ NÒNG -18° BẮN XE TĂNG T-34/85, IS-2 & SU-152!');
+    } else {
+      flakVoice.speak('TANK_ALERT', false);
+      showAlert(`ĐỢT ${waveNum}: OANH TẠC CƠ & THIẾT GIÁP XÔ VIẾT ĐỒNG LOẠT TIẾN CÔNG!`);
+    }
+  } else if (waveNum % 5 === 0) {
     showAlert(`BÁO ĐỘNG ĐỎ: ĐỢT OANH TẠC TỔNG LỰC SỐ ${waveNum}!`);
   } else if (waveNum > 1) {
     showAlert(`ĐỢT TỬ THỦ SỐ ${waveNum} BẮT ĐẦU!`);
@@ -6724,9 +7783,30 @@ function renderArmoryUI() {
   document.getElementById('lvl-rof').textContent = state.upgrades.rof;
   document.getElementById('lvl-cool').textContent = state.upgrades.cool;
   document.getElementById('lvl-sam').textContent = state.upgrades.sam;
+  const lvlRadar = document.getElementById('lvl-radar');
+  if (lvlRadar) lvlRadar.textContent = state.upgrades.radar;
+  const lvlArmor = document.getElementById('lvl-armor');
+  if (lvlArmor) lvlArmor.textContent = state.upgrades.armor;
+  const lvlWarhead = document.getElementById('lvl-warhead');
+  if (lvlWarhead) lvlWarhead.textContent = state.upgrades.warhead;
 
-  document.getElementById('buy-ammo-main').disabled = state.scrap < 60;
-  document.getElementById('buy-ammo-heavy').disabled = state.scrap < 75;
+  const mainAmmoCost = getMainAmmoCost();
+  const heavyAmmoCost = getHeavyAmmoCost();
+  const bAmmoMain = document.getElementById('buy-ammo-main');
+  bAmmoMain.textContent = `MUA ĐẠN (${mainAmmoCost})`;
+  bAmmoMain.disabled = state.scrap < mainAmmoCost;
+  const descAmmoMain = document.getElementById('desc-ammo-main');
+  if (descAmmoMain) {
+    descAmmoMain.textContent = `Bổ sung +1,200 viên đạn thường (Đã mua ${state.ammoMainBought} lần • Giá kế tiếp: ${mainAmmoCost + 20} QC).`;
+  }
+
+  const bAmmoHeavy = document.getElementById('buy-ammo-heavy');
+  bAmmoHeavy.textContent = `MUA ĐẠN NẶNG (${heavyAmmoCost})`;
+  bAmmoHeavy.disabled = state.scrap < heavyAmmoCost;
+  const descAmmoHeavy = document.getElementById('desc-ammo-heavy');
+  if (descAmmoHeavy) {
+    descAmmoHeavy.textContent = `Bổ sung +15 đạn nổ 128mm & +4 R1 (Đã mua ${state.ammoHeavyBought} lần • Giá kế tiếp: ${heavyAmmoCost + 25} QC).`;
+  }
 
   const costFlak = state.upgrades.flak * 120;
   const costJet = state.upgrades.jet * 130;
@@ -6740,8 +7820,16 @@ function renderArmoryUI() {
   bFlak.disabled = state.scrap < costFlak;
 
   const bJet = document.getElementById('upg-jet');
-  bJet.textContent = `NÂNG CẤP (${costJet})`;
+  bJet.textContent = friendlyJets.length < MAX_FRIENDLY_JETS
+    ? `TRIỆU HỒI +1 & NÂNG CẤP (${costJet})`
+    : `NÂNG CẤP HỎA LỰC (${costJet})`;
   bJet.disabled = state.scrap < costJet;
+  const descJet = document.getElementById('desc-jet');
+  if (descJet) {
+    descJet.textContent = friendlyJets.length < MAX_FRIENDLY_JETS
+      ? `Biên đội hiện có ${friendlyJets.length}/${MAX_FRIENDLY_JETS} chiếc. Nâng cấp triệu hồi đúng +1 chiếc & tăng hỏa lực 30mm.`
+      : `Biên đội đã đủ ${MAX_FRIENDLY_JETS}/${MAX_FRIENDLY_JETS} chiếc. Nâng cấp tăng sát thương & tốc độ bắn pháo 30mm.`;
+  }
 
   const bAlly = document.getElementById('upg-ally');
   bAlly.textContent = `NÂNG CẤP (${costAlly})`;
@@ -6759,12 +7847,76 @@ function renderArmoryUI() {
   bSam.textContent = `NÂNG CẤP (${costSam})`;
   bSam.disabled = state.scrap < costSam;
 
+  const costRadar = state.upgrades.radar * 125;
+  const bRadar = document.getElementById('upg-radar');
+  if (bRadar) {
+    bRadar.textContent = state.upgrades.radar >= 5 ? 'TỐI ĐA (CẤP 5)' : `NÂNG CẤP (${costRadar})`;
+    bRadar.disabled = state.upgrades.radar >= 5 || state.scrap < costRadar;
+  }
+
+  const costArmor = state.upgrades.armor * 115;
+  const bArmor = document.getElementById('upg-armor');
+  if (bArmor) {
+    bArmor.textContent = state.upgrades.armor >= 5 ? 'TỐI ĐA (CẤP 5)' : `NÂNG CẤP (${costArmor})`;
+    bArmor.disabled = state.upgrades.armor >= 5 || state.scrap < costArmor;
+  }
+
+  const costWarhead = state.upgrades.warhead * 140;
+  const bWarhead = document.getElementById('upg-warhead');
+  if (bWarhead) {
+    bWarhead.textContent = state.upgrades.warhead >= 4 ? 'TỐI ĐA (CẤP 4)' : `NÂNG CẤP (${costWarhead})`;
+    bWarhead.disabled = state.upgrades.warhead >= 4 || state.scrap < costWarhead;
+  }
+
+  const repairQuote = getRepairQuote();
   const bRep = document.getElementById('upg-repair');
-  bRep.disabled = state.scrap < 80 || (state.berlinHp >= 100 && state.turretHp >= 100);
+  const descRep = document.getElementById('desc-repair');
+  if (repairQuote.totalDmg <= 0) {
+    bRep.textContent = 'NGUYÊN VẸN (0)';
+    bRep.disabled = true;
+    if (descRep) descRep.textContent = 'Tháp pháo 100% & Berlin 100% — Không có hư hại cần sửa chữa.';
+  } else {
+    bRep.textContent = `SỬA CHỮA (${repairQuote.cost})`;
+    bRep.disabled = state.scrap < repairQuote.cost;
+    if (descRep) {
+      descRep.textContent = `Hư hại: Tháp pháo -${Math.round(repairQuote.turretDmg)}% • Berlin -${Math.round(repairQuote.berlinDmg)}% (Tổng ${Math.round(repairQuote.totalDmg)}%). Cần ${repairQuote.cost} QC để sửa 100%.`;
+    }
+  }
 }
 
-function openArmory() {
-  if (state.waveCleared) return;
+function triggerCampaignVictory() {
+  state.waveCleared = true;
+  state.running = false;
+  state.firingPrimary = false;
+  state.zoomed = false;
+  releaseGamePointerLock();
+
+  const campaignBonus = 600;
+  state.scrap += campaignBonus;
+  state.totalScrapEarned += campaignBonus;
+
+  recordCareerProgress(state.totalScrapEarned, state.kills, state.tankKills, true);
+  const rankInfo = getCurrentRankInfo();
+  const savedCallsign = localStorage.getItem('berlin1945_player_callsign') || 'Xạ Thủ Flakturm';
+  submitPlayerScore(savedCallsign, state.totalScrapEarned, state.kills, state.wave, 'campaign', state.tankKills);
+
+  const accuracy = state.totalShotsFired > 0 ? Math.round((state.shotsHit / state.totalShotsFired) * 100) : 0;
+  document.getElementById('victory-rank').textContent = rankInfo.title;
+  document.getElementById('victory-kills').textContent = Math.max(0, state.kills - state.tankKills);
+  document.getElementById('victory-tanks').textContent = state.tankKills;
+  document.getElementById('victory-accuracy').textContent = `${accuracy}% (${state.shotsHit}/${state.totalShotsFired})`;
+  document.getElementById('victory-berlin-hp').textContent = `${Math.max(0, Math.round(state.berlinHp))}%`;
+  document.getElementById('victory-turret-hp').textContent = `${Math.max(0, Math.round(state.turretHp))}%`;
+  document.getElementById('victory-score').textContent = state.totalScrapEarned.toLocaleString('vi-VN');
+  document.getElementById('victory-screen').classList.remove('hidden');
+}
+
+function openArmory(skipVictoryCheck = false) {
+  if (!skipVictoryCheck && state.gameMode === 'campaign' && state.wave >= CAMPAIGN_MAX_WAVES) {
+    triggerCampaignVictory();
+    return;
+  }
+  if (!skipVictoryCheck && state.waveCleared) return;
   state.waveCleared = true;
   state.running = false;
   state.firingPrimary = false;
@@ -6776,15 +7928,21 @@ function openArmory() {
   const autoFlakAmmo = 8;
   const autoSamAmmo = 2;
   const waveBonusScrap = 45 + state.wave * 15;
+  const armorHeal = (state.upgrades.armor - 1) * 4;
 
   state.primaryAmmo += autoMainAmmo;
   state.flakAmmo += autoFlakAmmo;
   state.samAmmo += autoSamAmmo;
   state.scrap += waveBonusScrap;
   state.totalScrapEarned += waveBonusScrap;
+  if (armorHeal > 0) {
+    state.turretHp = Math.min(100, state.turretHp + armorHeal);
+    state.berlinHp = Math.min(100, state.berlinHp + armorHeal);
+  }
 
+  const healNote = armorHeal > 0 ? ` • Trạm cứu hỏa hồi +${armorHeal}% HP` : '';
   document.getElementById('wave-resupply-note').textContent =
-    `Thưởng trụ vững Đợt ${state.wave}: +${waveBonusScrap} Quân Công & Tiếp tế tự động (+${autoMainAmmo} đạn chính, +${autoFlakAmmo} đạn 128mm, +${autoSamAmmo} R1)`;
+    `Thưởng trụ vững Đợt ${state.wave}: +${waveBonusScrap} Quân Công & Tiếp tế tự động (+${autoMainAmmo} đạn chính, +${autoFlakAmmo} 128mm, +${autoSamAmmo} R1)${healNote}`;
 
   renderArmoryUI();
   document.getElementById('armory-screen').classList.remove('hidden');
@@ -6808,11 +7966,12 @@ function triggerGameOver(reason) {
     isNewRecord = true;
   }
 
+  recordCareerProgress(state.totalScrapEarned, state.kills, state.tankKills, false);
   const savedCallsign = localStorage.getItem('berlin1945_player_callsign') || 'Xạ Thủ Flakturm';
   const callsignInput = document.getElementById('player-callsign-input');
   if (callsignInput) callsignInput.value = savedCallsign;
 
-  submitPlayerScore(savedCallsign, state.totalScrapEarned, state.kills, state.wave);
+  submitPlayerScore(savedCallsign, state.totalScrapEarned, state.kills, state.wave, state.gameMode, state.tankKills);
 
   document.getElementById('gameover-reason').textContent = reason;
   document.getElementById('final-wave').textContent = `Đợt ${state.wave}`;
@@ -6962,15 +8121,19 @@ function getAllLeaderboardPlayers() {
 }
 
 // Gọi hàm này khi kết thúc trận (Game Over) để ghi nhận điểm người chơi vào bảng tổng sắp
-function submitPlayerScore(playerName, score, kills, wave) {
+function submitPlayerScore(playerName, score, kills, wave, mode = 'endless', tankKills = 0) {
   const list = getAllLeaderboardPlayers();
   const ts = Date.now();
+  const rankInfo = getCurrentRankInfo();
   lastSubmittedTimestamp = ts;
   list.push({
     name: (playerName || 'Xạ Thủ Vô Danh').trim(),
+    rankTitle: rankInfo.shortTitle,
     score: Math.floor(score),
     kills: Math.floor(kills),
+    tankKills: Math.floor(tankKills),
     wave: Math.floor(wave),
+    mode,
     isMe: true,
     timestamp: ts
   });
@@ -6988,13 +8151,19 @@ function renderFullLeaderboard() {
     const rank = index + 1;
     const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
     const rowClass = p.isMe ? 'lb-row-me' : '';
+    const isCampaignWin = p.mode === 'campaign' && p.wave >= CAMPAIGN_MAX_WAVES;
+    const modeTag = isCampaignWin
+      ? '<span class="lb-mode-badge campaign">CHIẾN DỊCH 10/10</span>'
+      : `<span class="lb-mode-badge">${p.mode === 'campaign' ? 'CHIẾN DỊCH' : 'VÔ TẬN'} • Đợt ${p.wave}</span>`;
+    const rankTag = p.rankTitle ? `<span style="color:#d6c8a6; font-size:10px;">[${p.rankTitle}]</span> ` : '';
+    const tankNote = (p.tankKills && p.tankKills > 0) ? ` (${p.tankKills} tăng)` : '';
     return `
       <tr class="${rowClass}">
         <td class="${rankClass}">#${rank}</td>
-        <td>${p.name} ${p.isMe ? '(BẠN)' : ''}</td>
+        <td>${rankTag}${p.name} ${p.isMe ? '(BẠN)' : ''}</td>
         <td>${p.score.toLocaleString('vi-VN')}</td>
-        <td>${p.kills}</td>
-        <td>Đợt ${p.wave}</td>
+        <td>${p.kills}${tankNote}</td>
+        <td>${modeTag}</td>
       </tr>
     `;
   }).join('');
@@ -7005,6 +8174,21 @@ function initMenuUI(onStartGameCallback) {
   initFlakFavicon();
   initSplashScreen();
   renderFullLeaderboard();
+
+  syncRankDisplays();
+  const modeDescriptions = {
+    campaign: 'Trụ vững qua 10 đợt không kích & thiết giáp (29/04 → Bình minh 02/05/1945) để mở màn Chiến Thắng Lịch Sử.',
+    endless: 'Không giới hạn số đợt — thử thách giới hạn chịu đựng của tháp pháo Flakturm Zoo.'
+  };
+  document.querySelectorAll('[data-game-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const chosen = btn.getAttribute('data-game-mode') === 'endless' ? 'endless' : 'campaign';
+      state.gameMode = chosen;
+      document.querySelectorAll('[data-game-mode]').forEach(b => b.classList.toggle('active', b === btn));
+      const briefEl = document.getElementById('menu-mode-briefing');
+      if (briefEl) briefEl.textContent = modeDescriptions[chosen];
+    });
+  });
 
   document.getElementById('btn-deploy').addEventListener('click', () => {
     document.getElementById('main-menu').classList.add('hidden');
@@ -7729,10 +8913,14 @@ function returnToMainMenu() {
   enemyBombs.length = 0;
   pathfinderFlares.forEach(flare => {
     scene.remove(flare.mesh, flare.beam, flare.light);
-    flare.mesh.geometry.dispose(); flare.mesh.material.dispose();
+    disposeStandaloneObject(flare.mesh);
     flare.beam.geometry.dispose(); flare.beam.material.dispose();
   });
   pathfinderFlares.length = 0;
+  groundTargets.forEach(gt => { scene.remove(gt.mesh); disposeStandaloneObject(gt.mesh); });
+  groundTargets.length = 0;
+  groundShells.forEach(gs => scene.remove(gs.mesh));
+  groundShells.length = 0;
   parachutes.forEach(chute => { scene.remove(chute.mesh); disposeStandaloneObject(chute.mesh); });
   parachutes.length = 0;
   particles.forEach(item => {
@@ -7754,13 +8942,17 @@ function returnToMainMenu() {
 
   state.wave = 1; state.waveTotalEnemies = 0; state.enemiesRemainingToSpawn = 0; state.spawnTimer = 0;
   state.waveCleared = false; state.dawnProgress = 0; state.berlinHp = 100; state.turretHp = 100;
-  state.scrap = 0; state.totalScrapEarned = 0; state.kills = 0; state.totalShotsFired = 0; state.shotsHit = 0;
+  state.scrap = 0; state.totalScrapEarned = 0; state.kills = 0; state.tankKills = 0; state.totalShotsFired = 0; state.shotsHit = 0;
   state.primaryAmmo = INITIAL_PRIMARY_AMMO; state.flakAmmo = INITIAL_FLAK_AMMO; state.samAmmo = INITIAL_SAM_AMMO;
-  state.upgrades = { jet: 1, ally: 1, rof: 1, cool: 1, flak: 1, sam: 1 };
+  state.ammoMainBought = 0; state.ammoHeavyBought = 0; state.emergencyResupplyCount = 0;
+  nextFriendlyJetId = 1;
+  state.upgrades = { jet: 1, ally: 1, rof: 1, cool: 1, flak: 1, sam: 1, radar: 1, armor: 1, warhead: 1 };
   state.heat = 0; state.overheated = false; state.primaryRoundsFired = 0; state.barrelWear = 0; state.primaryRoundCounter = 0;
   state.yaw = 0; state.targetYaw = 0; state.pitch = 0.32; state.targetPitch = 0.32; state.yawVelocity = 0; state.pitchVelocity = 0;
-  state.flakFuseRange = 900; state.rangefinderJamTimer = 0; state.fireControlTarget = null; state.fireControlLastUpdate = 0;
-  state.fireControlTrackSeconds = 0; state.fireControlQuality = 0; state.fireControlAimYaw = 0; state.fireControlAimPitch = 0;
+  state.flakFuseRange = 950; state.zeitzunderTier = 'mid'; state.rangefinderJamTimer = 0; state.fireControlTarget = null; state.fireControlLastUpdate = 0;
+  state.fireControlTrackSeconds = 0; state.fireControlQuality = 0; state.fireControlVoiceAnnounced = false; state.fireControlAimYaw = 0; state.fireControlAimPitch = 0;
+  state.muzzleShockwaveTimer = 0; state.groundDepressionUnlocked = false;
+  muzzleShockwaveRing.visible = false; muzzleDeckFlashLight.intensity = 0;
   state.heavyAmmoType = 'HE'; state.fireCooldown = 0; state.heavyCooldown = 0; state.samCooldown = 0;
   state.heavyReadyCuePending = false; state.samReadyCuePending = false; state.resupplyCooldown = 0; state.emptyWarnTimer = 0;
   state.pathfinderPending = false; state.pathfinderStatus = 'inactive'; state.pathfinderTarget.set(0, 0, 0);
@@ -7780,6 +8972,9 @@ function returnToMainMenu() {
   document.getElementById('cinematic-overlay').classList.add('hidden');
   document.body.classList.remove('cinematic-playing');
   document.getElementById('alert-banner').style.opacity = '0';
+  audio.stopBattleBgm();
+  audio.flyoverTracks.forEach(track => { if (track) { track.pause(); track.volume = 0; } });
+  audio.startMenuBgm();
   document.getElementById('main-menu').classList.remove('hidden');
   updateHUDLabels();
 }
@@ -7791,7 +8986,16 @@ document.querySelectorAll('[data-return-main-menu]').forEach(button => {
   });
 });
 
+const triggerMenuBgmOnce = () => {
+  if (!state.running && !audio.muted) {
+    audio.startMenuBgm();
+  }
+};
+window.addEventListener('pointerdown', triggerMenuBgmOnce, { passive: true });
+window.addEventListener('keydown', triggerMenuBgmOnce, { passive: true });
+
 initMenuUI(() => {
+  audio.stopMenuBgm();
   startCinematicIntro(() => startWave(1));
 });
 document.getElementById('btn-deploy').textContent = 'VÀO VỊ TRÍ TỬ THỦ';
@@ -7808,12 +9012,19 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   samMissiles.forEach(m => scene.remove(m.mesh)); samMissiles.length = 0;
   enemyBombs.forEach(b => scene.remove(b.mesh)); enemyBombs.length = 0;
   parachutes.forEach(p => scene.remove(p.mesh)); parachutes.length = 0;
-  pathfinderFlares.forEach(f => scene.remove(f.mesh, f.beam, f.light)); pathfinderFlares.length = 0;
+  pathfinderFlares.forEach(f => { scene.remove(f.mesh, f.beam, f.light); disposeStandaloneObject(f.mesh); }); pathfinderFlares.length = 0;
+  groundTargets.forEach(gt => { scene.remove(gt.mesh); disposeStandaloneObject(gt.mesh); }); groundTargets.length = 0;
+  groundShells.forEach(gs => scene.remove(gs.mesh)); groundShells.length = 0;
+  state.flakFuseRange = 950; state.zeitzunderTier = 'mid'; state.fireControlVoiceAnnounced = false; state.muzzleShockwaveTimer = 0; state.groundDepressionUnlocked = false;
   state.berlinHp = 100; state.turretHp = 100;
-  state.scrap = 0; state.totalScrapEarned = 0; state.kills = 0; state.totalShotsFired = 0; state.shotsHit = 0;
+  state.scrap = 0; state.totalScrapEarned = 0; state.kills = 0; state.tankKills = 0; state.totalShotsFired = 0; state.shotsHit = 0;
   state.primaryAmmo = INITIAL_PRIMARY_AMMO;
   state.flakAmmo = INITIAL_FLAK_AMMO;
   state.samAmmo = INITIAL_SAM_AMMO;
+  state.ammoMainBought = 0;
+  state.ammoHeavyBought = 0;
+  state.emergencyResupplyCount = 0;
+  nextFriendlyJetId = 1;
   state.resupplyCooldown = 0; state.emptyWarnTimer = 0;
   state.heat = 0; state.overheated = false; state.zoomed = false;
   state.yawVelocity = 0; state.pitchVelocity = 0;
@@ -7822,54 +9033,102 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   state.fireControlTarget = null; state.fireControlTrackSeconds = 0; state.fireControlQuality = 0;
   state.heavyAmmoType = 'HE'; state.flashBlindTimer = 0; state.liftJamTimer = 0; state.turretShockTimer = 0;
   state.primaryRoundsFired = 0; state.barrelWear = 0; state.opticCrackTimer = 0; state.opticHitCooldown = 0;
-  state.upgrades = { jet: 1, ally: 1, rof: 1, cool: 1, flak: 1, sam: 1 };
+  state.upgrades = { jet: 1, ally: 1, rof: 1, cool: 1, flak: 1, sam: 1, radar: 1, armor: 1, warhead: 1 };
   startWave(1);
 });
 
+const btnContinueEndless = document.getElementById('btn-continue-endless');
+if (btnContinueEndless) {
+  btnContinueEndless.addEventListener('click', () => {
+    state.gameMode = 'endless';
+    document.getElementById('victory-screen').classList.add('hidden');
+    openArmory(true);
+  });
+}
+const btnVictoryLb = document.getElementById('btn-victory-lb');
+if (btnVictoryLb) {
+  btnVictoryLb.addEventListener('click', () => {
+    renderFullLeaderboard();
+    document.getElementById('leaderboard-modal').classList.add('open');
+  });
+}
+
 document.getElementById('buy-ammo-main').addEventListener('click', () => {
-  if (state.scrap >= 60) {
-    state.scrap -= 60;
+  const cost = getMainAmmoCost();
+  if (state.scrap >= cost) {
+    state.scrap -= cost;
+    state.ammoMainBought++;
     state.primaryAmmo += 1200;
+    updateHUDLabels();
     renderArmoryUI();
   }
 });
 document.getElementById('buy-ammo-heavy').addEventListener('click', () => {
-  if (state.scrap >= 75) {
-    state.scrap -= 75;
+  const cost = getHeavyAmmoCost();
+  if (state.scrap >= cost) {
+    state.scrap -= cost;
+    state.ammoHeavyBought++;
     state.flakAmmo += 15;
     state.samAmmo += 4;
+    updateHUDLabels();
     renderArmoryUI();
   }
 });
 document.getElementById('upg-flak').addEventListener('click', () => {
   const cost = state.upgrades.flak * 120;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.flak++; renderArmoryUI(); }
+  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.flak++; updateHUDLabels(); renderArmoryUI(); }
 });
 document.getElementById('upg-jet').addEventListener('click', () => {
   const cost = state.upgrades.jet * 130;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.jet++; syncFriendlySquadron(); renderArmoryUI(); }
+  if (state.scrap >= cost) {
+    state.scrap -= cost;
+    state.upgrades.jet++;
+    spawnOneFriendlyJet();
+    updateHUDLabels();
+    renderArmoryUI();
+  }
 });
 document.getElementById('upg-ally').addEventListener('click', () => {
   const cost = state.upgrades.ally * 110;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.ally++; renderArmoryUI(); }
+  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.ally++; updateHUDLabels(); renderArmoryUI(); }
 });
 document.getElementById('upg-rof').addEventListener('click', () => {
   const cost = state.upgrades.rof * 100;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.rof++; renderArmoryUI(); }
+  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.rof++; updateHUDLabels(); renderArmoryUI(); }
 });
 document.getElementById('upg-cool').addEventListener('click', () => {
   const cost = state.upgrades.cool * 100;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.cool++; renderArmoryUI(); }
+  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.cool++; updateHUDLabels(); renderArmoryUI(); }
 });
 document.getElementById('upg-sam').addEventListener('click', () => {
   const cost = state.upgrades.sam * 130;
-  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.sam++; renderArmoryUI(); }
+  if (state.scrap >= cost) { state.scrap -= cost; state.upgrades.sam++; updateHUDLabels(); renderArmoryUI(); }
+});
+document.getElementById('upg-radar').addEventListener('click', () => {
+  const cost = state.upgrades.radar * 125;
+  if (state.upgrades.radar < 5 && state.scrap >= cost) {
+    state.scrap -= cost; state.upgrades.radar++; updateHUDLabels(); renderArmoryUI();
+  }
+});
+document.getElementById('upg-armor').addEventListener('click', () => {
+  const cost = state.upgrades.armor * 115;
+  if (state.upgrades.armor < 5 && state.scrap >= cost) {
+    state.scrap -= cost; state.upgrades.armor++; updateHUDLabels(); renderArmoryUI();
+  }
+});
+document.getElementById('upg-warhead').addEventListener('click', () => {
+  const cost = state.upgrades.warhead * 140;
+  if (state.upgrades.warhead < 4 && state.scrap >= cost) {
+    state.scrap -= cost; state.upgrades.warhead++; updateHUDLabels(); renderArmoryUI();
+  }
 });
 document.getElementById('upg-repair').addEventListener('click', () => {
-  if (state.scrap >= 80) {
-    state.scrap -= 80;
-    state.berlinHp = Math.min(100, state.berlinHp + 35);
-    state.turretHp = Math.min(100, state.turretHp + 35);
+  const { totalDmg, cost } = getRepairQuote();
+  if (totalDmg > 0 && state.scrap >= cost) {
+    state.scrap -= cost;
+    state.berlinHp = 100;
+    state.turretHp = 100;
+    updateHUDLabels();
     renderArmoryUI();
   }
 });
@@ -7975,15 +9234,28 @@ function updateTransientBattleEffects(dt) {
   for (let i = pathfinderFlares.length - 1; i >= 0; i--) {
     const flare = pathfinderFlares[i];
     flare.life -= dt;
+    flare.phase += dt * 1.8;
+    if (flare.mesh.position.y > 14) {
+      flare.mesh.position.y -= (flare.fallSpeed || 7.2) * dt;
+      flare.mesh.position.x += Math.sin(flare.phase) * dt * 2.2 + state.windDirection.x * dt * 1.8;
+      flare.mesh.position.z += Math.cos(flare.phase * 0.85) * dt * 2.2 + state.windDirection.z * dt * 1.8;
+      state.pathfinderTarget.set(flare.mesh.position.x, 0, flare.mesh.position.z);
+    }
+    flare.beam.position.copy(flare.mesh.position).add(new THREE.Vector3(0, -18, 0));
+    flare.light.position.copy(flare.mesh.position);
+
     const remain = Math.max(0, flare.life / flare.maxLife);
-    flare.mesh.material.opacity = 0.55 + Math.sin(performance.now() * 0.018) * 0.28;
-    flare.beam.material.opacity = 0.26 * remain;
-    flare.light.intensity = 55 * remain;
+    if (flare.coreMat) flare.coreMat.opacity = 0.65 + Math.sin(performance.now() * 0.022) * 0.3;
+    flare.beam.material.opacity = 0.24 * remain;
+    flare.light.intensity = 75 * remain;
     if (flare.life <= 0) {
       scene.remove(flare.mesh, flare.beam, flare.light);
-      flare.mesh.geometry.dispose(); flare.mesh.material.dispose();
+      disposeStandaloneObject(flare.mesh);
       flare.beam.geometry.dispose(); flare.beam.material.dispose();
       pathfinderFlares.splice(i, 1);
+      if (pathfinderFlares.length === 0 && state.pathfinderStatus === 'lit') {
+        state.pathfinderStatus = 'inactive';
+      }
     }
   }
 }
@@ -8221,7 +9493,7 @@ function animate(now) {
       if (keys['KeyA'] || keys['ArrowLeft']) state.targetYaw += keyTurnSpeed * dt;
       if (keys['KeyD'] || keys['ArrowRight']) state.targetYaw -= keyTurnSpeed * dt;
       if (keys['KeyW'] || keys['ArrowUp']) state.targetPitch = Math.min(MAX_PITCH, state.targetPitch + keyTurnSpeed * dt);
-      if (keys['KeyS'] || keys['ArrowDown']) state.targetPitch = Math.max(MIN_PITCH, state.targetPitch - keyTurnSpeed * dt);
+      if (keys['KeyS'] || keys['ArrowDown']) state.targetPitch = Math.max(getCurrentMinPitch(), state.targetPitch - keyTurnSpeed * dt);
     }
 
     // Electric motors accelerate the heavy mount instead of snapping to mouse input.
@@ -8248,7 +9520,7 @@ function animate(now) {
       state.pitch = state.targetPitch;
       state.pitchVelocity = 0;
     } else state.pitch = nextPitch;
-    const clampedPitch = Math.max(MIN_PITCH, Math.min(MAX_PITCH, state.pitch));
+    const clampedPitch = Math.max(getCurrentMinPitch(), Math.min(MAX_PITCH, state.pitch));
     if (clampedPitch !== state.pitch) state.pitchVelocity = 0;
     state.pitch = clampedPitch;
 
@@ -8266,6 +9538,17 @@ function animate(now) {
     mainMuzzleFlash.material.opacity = Math.max(0, mainMuzzleFlash.material.opacity - dt * 14);
     if (mainMuzzleFlash.material.opacity <= 0) mainMuzzleFlash.visible = false;
     mainMuzzleLight.intensity = Math.max(0, mainMuzzleLight.intensity - dt * 85);
+    if (state.muzzleShockwaveTimer > 0) {
+      state.muzzleShockwaveTimer = Math.max(0, state.muzzleShockwaveTimer - dt);
+      const tShock = 1 - (state.muzzleShockwaveTimer / 0.10);
+      muzzleShockwaveRing.scale.setScalar(0.65 + tShock * 7.6);
+      muzzleShockwaveMat.opacity = Math.max(0, (1 - tShock) * 0.92);
+      muzzleDeckFlashLight.intensity = Math.max(0, (1 - tShock) * 24.0);
+      if (state.muzzleShockwaveTimer <= 0) {
+        muzzleShockwaveRing.visible = false;
+        muzzleDeckFlashLight.intensity = 0;
+      }
+    }
 
     // Smooth damped harmonic camera recoil (replaces jittery per-frame Math.random shake)
     if (state.screenShake > 0) {
@@ -8320,7 +9603,7 @@ function animate(now) {
           state.spawnTimer = 0.4;
         }
       }
-    } else if (enemies.length === 0) {
+    } else if (enemies.length === 0 && groundTargets.length === 0) {
       openArmory();
     }
 
@@ -8329,7 +9612,11 @@ function animate(now) {
       jet.fireCooldown = Math.max(0, jet.fireCooldown - dt);
       if (enemies.length > 0) {
         if (!jet.target || !enemies.includes(jet.target)) {
-          jet.target = enemies[idx % enemies.length];
+          const priorityTarget =
+            enemies.find(e => e.type === 'pathfinder' && !e.pathfinderFlareDropped && !e.damagedDive) ||
+            enemies.find(e => e.isMasterBomber && !e.damagedDive) ||
+            enemies.find(e => (e.type === 'b17' || e.type === 'lancaster') && !e.damagedDive);
+          jet.target = priorityTarget || enemies[idx % enemies.length];
         }
         const pursuitSpot = jet.target.mesh.position.clone().add(
           new THREE.Vector3(Math.cos(now * 0.001 + idx) * 65, 22, Math.sin(now * 0.001 + idx) * 65)
@@ -8716,7 +10003,11 @@ function animate(now) {
       }
 
       if (struckEnemy) {
-        spawnFlakBurst(m.mesh.position, 42, true);
+        if (state.upgrades.warhead > 1) {
+          spawnFlakBurst(m.mesh.position, 32 + (state.upgrades.warhead - 1) * 8, false);
+        } else {
+          spawnFlakBurst(m.mesh.position, 42, true);
+        }
         state.shotsHit++;
         damageEnemy(struckEnemy, struckIndex, 9999, false, true, 'missile', m.mesh.position);
         scene.remove(m.mesh);
@@ -8729,6 +10020,127 @@ function animate(now) {
         spawnFlakBurst(m.mesh.position, 32, true);
         scene.remove(m.mesh);
         samMissiles.splice(i, 1);
+      }
+    }
+
+    // Update Barrage Balloons (Sway in wind & intercept low-flying enemy aircraft)
+    barrageBalloons.forEach((b) => {
+      if (!b.intact) return;
+      const swayX = Math.sin(now * 0.00055 + b.phase) * 7.5 + state.windDirection.x * 5.0;
+      const swayZ = Math.cos(now * 0.00048 + b.phase) * 7.5 + state.windDirection.z * 5.0;
+      b.mesh.position.set(b.anchor.x + swayX, b.baseAlt + Math.sin(now * 0.0008 + b.phase) * 2.2, b.anchor.z + swayZ);
+      const posAttr = b.cable.geometry.attributes.position;
+      posAttr.setXYZ(1, b.mesh.position.x, b.mesh.position.y, b.mesh.position.z);
+      posAttr.needsUpdate = true;
+
+      for (let ei = enemies.length - 1; ei >= 0; ei--) {
+        const e = enemies[ei];
+        const horizToCable = Math.hypot(e.mesh.position.x - b.mesh.position.x, e.mesh.position.z - b.mesh.position.z);
+        if (horizToCable < 15 && e.mesh.position.y <= b.mesh.position.y + 12) {
+          showAlert(`${e.name} VƯỚNG CÁP KHÍ CẦU PHÒNG KHÔNG!`);
+          damageEnemy(e, ei, 9999, true, true, 'flak', e.mesh.position);
+          break;
+        }
+      }
+    });
+
+    // Update Rooftop 20mm / 37mm Light AA Batteries on Berlin Buildings
+    rooftopFlakBatteries.forEach((rb, rIdx) => {
+      rb.cooldown -= dt;
+      const lowTarget = enemies.find(e => e.mesh.position.y < 235 && e.mesh.position.distanceTo(rb.pos) < 520) || groundTargets[rIdx % Math.max(1, groundTargets.length)];
+      if (!lowTarget) return;
+      if (rb.burstRemaining > 0) {
+        if (rb.cooldown <= 0) {
+          const dir = lowTarget.mesh.position.clone().sub(rb.pos).normalize();
+          dir.x += (Math.random() - 0.5) * 0.04;
+          dir.y += (Math.random() - 0.5) * 0.04;
+          dir.z += (Math.random() - 0.5) * 0.04;
+          dir.normalize();
+          const tracer = new THREE.Mesh(alliedProjectileGeometry, alliedProjectileMaterial);
+          tracer.position.copy(rb.pos);
+          tracer.lookAt(rb.pos.clone().add(dir));
+          scene.add(tracer);
+          projectiles.push({
+            mesh: tracer,
+            vel: dir.multiplyScalar(640),
+            life: 1.1,
+            damage: rb.caliber === '37mm' ? 11 : 7,
+            isHeavy: false,
+            isAllied: true
+          });
+          rb.burstRemaining--;
+          rb.cooldown = rb.caliber === '37mm' ? 0.18 : 0.11;
+        }
+      } else if (rb.cooldown <= 0) {
+        rb.burstRemaining = rb.caliber === '37mm' ? 3 : 5;
+        rb.cooldown = 1.9 + Math.random() * 1.6;
+      }
+    });
+
+    // Update Soviet Ground Armor (T-34/85, IS-2, SU-152 from Wave 4+)
+    for (let gi = groundTargets.length - 1; gi >= 0; gi--) {
+      const gt = groundTargets[gi];
+      const toTower = new THREE.Vector3(
+        flak40Station.position.x - gt.mesh.position.x,
+        0,
+        flak40Station.position.z - gt.mesh.position.z
+      );
+      const dist = toTower.length();
+      if (dist > gt.stopDist) {
+        const moveDir = toTower.normalize();
+        gt.mesh.position.addScaledVector(moveDir, gt.speed * dt);
+        gt.mesh.lookAt(flak40Station.position.x, gt.mesh.position.y, flak40Station.position.z);
+        gt.smokeTimer -= dt;
+        if (gt.smokeTimer <= 0) {
+          gt.smokeTimer = 0.55;
+          const dust = new THREE.Mesh(
+            new THREE.DodecahedronGeometry(1.6, 0),
+            new THREE.MeshBasicMaterial({ color: 0x3b3530, transparent: true, opacity: 0.45 })
+          );
+          dust.position.copy(gt.mesh.position).add(new THREE.Vector3(0, 1.2, 0));
+          scene.add(dust);
+          flakClouds.push({ mesh: dust, life: 1.1, maxLife: 1.1, riseSpeed: 1.4 });
+        }
+      } else {
+        gt.fireCooldown -= dt;
+        if (gt.fireCooldown <= 0) {
+          gt.fireCooldown = gt.armorType === 't34' ? 5.2 : 6.8;
+          const shellOrigin = gt.mesh.position.clone().add(new THREE.Vector3(0, 3.6, 0));
+          const aimTower = flak40Station.position.clone().add(new THREE.Vector3(
+            (Math.random() - 0.5) * 16,
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 16
+          ));
+          const shellDir = aimTower.sub(shellOrigin).normalize();
+          const shellMesh = new THREE.Mesh(flakShellGeometry, flakShellMaterial);
+          shellMesh.position.copy(shellOrigin);
+          scene.add(shellMesh);
+          groundShells.push({
+            mesh: shellMesh,
+            vel: shellDir.multiplyScalar(240),
+            dmg: gt.dmg,
+            life: 3.2
+          });
+          spawnCityGroundExplosion(shellOrigin, 0.35, false);
+        }
+      }
+    }
+
+    for (let si = groundShells.length - 1; si >= 0; si--) {
+      const gs = groundShells[si];
+      gs.life -= dt;
+      gs.mesh.position.addScaledVector(gs.vel, dt);
+      if (gs.mesh.position.distanceTo(flak40Station.position) < 24 || gs.life <= 0) {
+        if (gs.mesh.position.distanceTo(flak40Station.position) < 34) {
+          spawnCityGroundExplosion(gs.mesh.position, 0.85, true);
+          const armorMult = Math.max(0.52, 1 - (state.upgrades.armor - 1) * 0.12);
+          state.turretHp = Math.max(0, state.turretHp - gs.dmg * armorMult);
+          state.screenShake = Math.max(state.screenShake, 0.48);
+          showAlert('ĐẠN PHÁO XE TĂNG BẮN TRÚNG THÁP FLAKTURM!');
+          if (state.turretHp <= 0) triggerGameOver('THÁP PHÁO FLAKTURM ĐÃ BỊ PHÁ HỦY!');
+        }
+        scene.remove(gs.mesh);
+        groundShells.splice(si, 1);
       }
     }
 
@@ -8752,7 +10164,11 @@ function animate(now) {
 
         if (closest.distanceTo(e.mesh.position) <= e.hitRadius + (p.isHeavy ? 7.5 : 2.5)) {
           if (p.isFlakAP) {
-            damageEnemy(e, j, 360 + (state.upgrades.flak - 1) * 55, false, false, 'ap', closest);
+            damageEnemy(e, j, 380 + (state.upgrades.flak - 1) * 60, false, false, 'ap', closest);
+            if (p.isPlayerShot) state.shotsHit++;
+          } else if (p.isFlakShrapnel) {
+            spawnShrapnelCone(closest, p.vel);
+            damageEnemy(e, j, p.damage * 0.75, false, true, 'flak', closest);
             if (p.isPlayerShot) state.shotsHit++;
           } else if (p.isHeavy) {
             const targetsHit = spawnFlakBurst(closest, p.blastRadius);
@@ -8763,6 +10179,45 @@ function animate(now) {
           }
           hit = true;
           break;
+        }
+      }
+
+      if (!hit && !p.isEnemyGunfire && !p.isEnemyFighterShot) {
+        for (let fi = pathfinderFlares.length - 1; fi >= 0; fi--) {
+          const flare = pathfinderFlares[fi];
+          if (p.mesh.position.distanceTo(flare.mesh.position) <= flare.hitRadius + (p.isHeavy ? 6 : 2.5)) {
+            flare.hp -= p.damage;
+            if (p.isPlayerShot) state.shotsHit++;
+            if (flare.hp <= 0) destroyParachuteFlare(fi);
+            hit = true;
+            break;
+          }
+        }
+      }
+
+      if (!hit && !p.isEnemyGunfire && !p.isEnemyFighterShot) {
+        for (let gi = groundTargets.length - 1; gi >= 0; gi--) {
+          const gt = groundTargets[gi];
+          const gtCenter = gt.mesh.position.clone().add(new THREE.Vector3(0, 2.5, 0));
+          if (p.mesh.position.distanceTo(gtCenter) <= gt.hitRadius + (p.isHeavy ? 6 : 2.5)) {
+            if (p.isFlakAP) {
+              gt.fireCooldown += 2.8;
+              damageGroundTarget(gt, gi, 580 + (state.upgrades.flak - 1) * 85, false);
+              if (p.isPlayerShot) state.shotsHit++;
+            } else if (p.isFlakShrapnel) {
+              spawnShrapnelCone(p.mesh.position, p.vel);
+              damageGroundTarget(gt, gi, 140, false);
+              if (p.isPlayerShot) state.shotsHit++;
+            } else if (p.isHeavy) {
+              spawnFlakBurst(p.mesh.position, p.blastRadius);
+              if (p.isPlayerShot) state.shotsHit++;
+            } else {
+              damageGroundTarget(gt, gi, p.damage * 0.55, p.isAllied);
+              if (p.isPlayerShot) state.shotsHit++;
+            }
+            hit = true;
+            break;
+          }
         }
       }
 
@@ -8782,7 +10237,8 @@ function animate(now) {
       }
 
       if (p.isEnemyGunfire && p.life <= 0) {
-        state.turretHp = Math.max(0, state.turretHp - 0.65);
+        const armorMultG = Math.max(0.52, 1 - (state.upgrades.armor - 1) * 0.12);
+        state.turretHp = Math.max(0, state.turretHp - 0.65 * armorMultG);
         state.opticCrackTimer = Math.max(state.opticCrackTimer, 5.5);
         state.screenShake = Math.max(state.screenShake, 0.18);
         showDefensiveGunnerImpact();
@@ -8795,7 +10251,9 @@ function animate(now) {
       }
 
       if (hit || p.life <= 0) {
-        if (!hit && p.isHeavy && p.life <= 0) {
+        if (!hit && p.isFlakShrapnel && p.life <= 0) {
+          spawnShrapnelCone(p.mesh.position, p.vel);
+        } else if (!hit && p.isHeavy && p.life <= 0) {
           const targetsHit = spawnFlakBurst(p.mesh.position, p.blastRadius);
           if (p.isPlayerShot && targetsHit > 0) state.shotsHit++;
         }
@@ -8824,18 +10282,20 @@ function animate(now) {
       if (b.mesh.position.y <= impactY) {
         spawnCityGroundExplosion(b.mesh.position, b.targetCity ? 1.25 : 1.0, true);
         const shockDistance = b.mesh.position.distanceTo(flak40Station.position);
+        const armorMultB = Math.max(0.52, 1 - (state.upgrades.armor - 1) * 0.12);
+        const radarJamMult = Math.max(0.28, 1 - (state.upgrades.radar - 1) * 0.18);
         if (!b.missed && shockDistance < 115) {
-          state.rangefinderJamTimer = Math.max(state.rangefinderJamTimer, 6.5 + Math.random() * 3.5);
-          state.liftJamTimer = Math.max(state.liftJamTimer, 3.5 + Math.random() * 2.5);
-          state.turretShockTimer = Math.max(state.turretShockTimer, 5.5);
+          state.rangefinderJamTimer = Math.max(state.rangefinderJamTimer, (6.5 + Math.random() * 3.5) * radarJamMult);
+          state.liftJamTimer = Math.max(state.liftJamTimer, (3.5 + Math.random() * 2.5) * armorMultB);
+          state.turretShockTimer = Math.max(state.turretShockTimer, 5.5 * armorMultB);
           state.heavyCooldown = Math.max(state.heavyCooldown, 2.8);
           state.screenShake = Math.max(state.screenShake, 1.1);
           showAlert('BOM NỔ GẦN THÁP CHỈ HUY — KÍNH ĐO XA HỎNG, TỜI ĐẠN KẸT, THÁP CHẬM!');
         }
         if (b.targetCity && !b.missed) {
-          state.berlinHp -= b.dmg;
+          state.berlinHp -= b.dmg * (1 - (state.upgrades.armor - 1) * 0.05);
         } else if (!b.targetCity && !b.missed) {
-          state.turretHp -= b.dmg;
+          state.turretHp -= b.dmg * armorMultB;
           state.screenShake = 0.55;
         }
         scene.remove(b.mesh);
@@ -8904,3 +10364,8 @@ animate(performance.now());
 </script>
 </body>
 </html>
+
+
+
+
+
